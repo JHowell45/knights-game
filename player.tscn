@@ -1,7 +1,8 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=20 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1j73h"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="1_637lj"]
+[ext_resource type="Script" path="res://animation_player.gd" id="3_fr88f"]
 [ext_resource type="PackedScene" uid="uid://djij8fvt7nkaj" path="res://components/character_state.tscn" id="3_w8f7q"]
 [ext_resource type="Script" path="res://label.gd" id="4_wgeqr"]
 
@@ -390,9 +391,11 @@ metadata/_aseprite_wizard_interface_config_ = {
 metadata/_aseprite_wizard_source_file_hash_ = "dc83fe643bbe0da0b76dad411e98b1a6"
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+unique_name_in_owner = true
 libraries = {
 "": SubResource("AnimationLibrary_re32e")
 }
+script = ExtResource("3_fr88f")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mb4iw")
