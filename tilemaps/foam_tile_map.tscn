@@ -1,0 +1,58 @@
+[gd_scene load_steps=4 format=3 uid="uid://du7x5lmekubq5"]
+
+[ext_resource type="Texture2D" uid="uid://dejv8saa46fv8" path="res://assets/Tiny Swords (Update 010)/Terrain/Water/Foam/Foam.png" id="1_a5rw1"]
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tx3pp"]
+texture = ExtResource("1_a5rw1")
+texture_region_size = Vector2i(64, 64)
+1:0/0 = 0
+4:0/0 = 0
+7:0/0 = 0
+10:0/0 = 0
+11:0/0 = 0
+12:0/0 = 0
+13:0/0 = 0
+14:0/0 = 0
+16:0/0 = 0
+19:0/0 = 0
+22:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+4:1/0 = 0
+5:1/0 = 0
+6:1/0 = 0
+7:1/0 = 0
+8:1/0 = 0
+9:1/0 = 0
+10:1/0 = 0
+11:1/0 = 0
+12:1/0 = 0
+13:1/0 = 0
+14:1/0 = 0
+15:1/0 = 0
+16:1/0 = 0
+17:1/0 = 0
+18:1/0 = 0
+19:1/0 = 0
+20:1/0 = 0
+21:1/0 = 0
+22:1/0 = 0
+23:1/0 = 0
+1:2/0 = 0
+4:2/0 = 0
+7:2/0 = 0
+10:2/0 = 0
+11:2/0 = 0
+13:2/0 = 0
+16:2/0 = 0
+19:2/0 = 0
+22:2/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_xsfqi"]
+tile_size = Vector2i(64, 64)
+sources/0 = SubResource("TileSetAtlasSource_tx3pp")
+
+[node name="FoamTileMap" type="TileMapLayer"]
+tile_set = SubResource("TileSet_xsfqi")
