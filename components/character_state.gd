@@ -9,3 +9,6 @@ enum States {
 }
 
 @export var state: States
+
+func _set_state(state: States, animator: AnimationPlayer):
+	pass
