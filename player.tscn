@@ -36,7 +36,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_vxe5a"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -64,7 +63,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_drdgq"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -92,7 +90,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_dm0th"]
 length = 1.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -120,7 +117,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ss3sb"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -148,7 +144,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_afggi"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -176,7 +171,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_mg51x"]
 length = 1.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -204,7 +198,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_76pul"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -232,7 +225,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_5qatt"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -260,7 +252,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_htne5"]
 length = 1.2
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -288,7 +279,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_ocvsq"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -316,7 +306,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_sxjxn"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -370,6 +359,7 @@ texture_filter = 1
 texture = ExtResource("1_637lj")
 hframes = 7
 vframes = 6
+frame = 32
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
