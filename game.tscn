@@ -1,3 +1,17 @@
-[gd_scene format=3 uid="uid://bnl1c68xxehcx"]
+[gd_scene load_steps=4 format=3 uid="uid://bnl1c68xxehcx"]
+
+[ext_resource type="PackedScene" uid="uid://bdbfmfdd6ay0m" path="res://background.tscn" id="1_suv8w"]
+[ext_resource type="PackedScene" uid="uid://8pbbbdtte5m7" path="res://test_level.tscn" id="2_iy184"]
+[ext_resource type="PackedScene" uid="uid://bcamq5835saae" path="res://player.tscn" id="3_35uav"]
 
 [node name="Game" type="Node2D"]
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = -1
+
+[node name="Background" parent="CanvasLayer" instance=ExtResource("1_suv8w")]
+
+[node name="TestLevel" parent="." instance=ExtResource("2_iy184")]
+
+[node name="Player" parent="." instance=ExtResource("3_35uav")]
+position = Vector2(310, 172)
