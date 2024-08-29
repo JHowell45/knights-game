@@ -1,7 +1,8 @@
-[gd_scene load_steps=17 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=18 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1j73h"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="1_637lj"]
+[ext_resource type="PackedScene" uid="uid://djij8fvt7nkaj" path="res://components/character_state.tscn" id="3_w8f7q"]
 
 [sub_resource type="Animation" id="Animation_cb1v1"]
 length = 0.1
@@ -394,3 +395,5 @@ libraries = {
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_mb4iw")
+
+[node name="CharacterState" parent="." instance=ExtResource("3_w8f7q")]
