@@ -1,5 +1,7 @@
 extends CharacterBody2D
 
+signal following
+
 @export var speed: int
 
 @onready var state = %MinionState
