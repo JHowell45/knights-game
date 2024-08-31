@@ -16,6 +16,8 @@ layer = -1
 
 [node name="Minion" parent="." instance=ExtResource("4_alp84")]
 position = Vector2(920, 186)
+collision_layer = 2
+collision_mask = 2
 
 [node name="Player" parent="." instance=ExtResource("3_35uav")]
 position = Vector2(445, 149)
