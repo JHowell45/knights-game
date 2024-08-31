@@ -9,6 +9,8 @@ extends CharacterBody2D
 @onready var environment_collision: CollisionShape2D = $EnvironmentCollision
 @onready var direction = state.Direction
 
+@onready var followers: Array = []
+
 
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
