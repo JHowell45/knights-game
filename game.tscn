@@ -14,10 +14,10 @@ layer = -1
 
 [node name="TestLevel" parent="." instance=ExtResource("2_iy184")]
 
+[node name="Minion" parent="." instance=ExtResource("4_alp84")]
+position = Vector2(920, 186)
+
 [node name="Player" parent="." instance=ExtResource("3_35uav")]
 position = Vector2(445, 149)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Minion" parent="." instance=ExtResource("4_alp84")]
-position = Vector2(920, 186)
