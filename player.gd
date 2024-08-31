@@ -9,7 +9,6 @@ extends CharacterBody2D
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
 	move_and_slide()
-	print(velocity)
 	
 	if state.state != state.States.ATTACK:
 		_handle_sprite_flip()
@@ -26,8 +25,6 @@ func _physics_process(delta: float) -> void:
 			state._set_state(state.States.ATTACK, animator, state.Direction.DOWN)
 		else:
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-		
-	print(animator.get_queue())
 
 func _handle_sprite_flip():
 	if velocity.x < 0:
