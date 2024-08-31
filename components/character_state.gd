@@ -31,7 +31,9 @@ func running(animator: AnimationPlayer):
 	animator.play("Run")
 	
 func attacking(animator: AnimationPlayer):
-	animator.play("Idle")
+	animator.play("Attack_1")
+	await animator.animation_finished
+	_set_state(States.IDLE, animator)
 	
 func hit(animator: AnimationPlayer):
 	animator.play("Idle")
