@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=22 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1j73h"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="1_637lj"]
@@ -350,10 +350,7 @@ _data = {
 }
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb4iw"]
-size = Vector2(20, 13)
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0bwg"]
-size = Vector2(34, 66)
+size = Vector2(20, 8)
 
 [node name="Player" type="CharacterBody2D"]
 script = ExtResource("1_1j73h")
@@ -394,7 +391,7 @@ libraries = {
 script = ExtResource("3_fr88f")
 
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
-position = Vector2(0, 25.5)
+position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_mb4iw")
 
 [node name="CharacterState" parent="." instance=ExtResource("3_w8f7q")]
@@ -408,10 +405,6 @@ offset_bottom = -44.0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_wgeqr")
-
-[node name="Hurtbox" type="CollisionShape2D" parent="."]
-shape = SubResource("RectangleShape2D_b0bwg")
-debug_color = Color(0.828975, 0.341365, 0.520172, 0.42)
 
 [node name="Health" parent="." instance=ExtResource("6_a1f3n")]
 unique_name_in_owner = true
