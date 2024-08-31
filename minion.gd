@@ -8,7 +8,7 @@ extends CharacterBody2D
 
 @onready var following: bool = false
 
-@onready var player = get_node("/root/Game/Player")
+@onready var player = get_node("/root/Game/TestLevel/Player")
 
 const DISTANCE: int = 50
 
