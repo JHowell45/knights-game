@@ -8,7 +8,7 @@ signal following
 @onready var animator: AnimationPlayer = %AnimationPlayer
 @onready var nav: NavigationAgent2D = $NavigationAgent2D
 
-@onready var following: bool = false
+@onready var is_following: bool = false
 
 @onready var player = get_node("/root/Game/TestLevel/Player")
 
@@ -16,7 +16,7 @@ const DISTANCE: int = 50
 
 func _physics_process(delta: float) -> void:
 	var direction: Vector2 = Vector2.ZERO
-	if following:
+	if is_following:
 		var new_position = player.environment_collision.global_position
 		if (player.direction == player.state.Direction.LEFT):
 			new_position.x += DISTANCE
@@ -42,8 +42,8 @@ func _physics_process(delta: float) -> void:
 
 
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
-	if event.is_action("left_click") and event.is_pressed() and not following:
-		following = true
+	if event.is_action("left_click") and event.is_pressed() and not is_following:
+		is_following = true
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
