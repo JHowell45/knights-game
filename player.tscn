@@ -358,6 +358,7 @@ script = ExtResource("1_1j73h")
 speed = 10000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+unique_name_in_owner = true
 texture_filter = 1
 texture = ExtResource("1_637lj")
 hframes = 7

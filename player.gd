@@ -4,6 +4,7 @@ extends CharacterBody2D
 
 @onready var animator: AnimationPlayer = %AnimationPlayer
 @onready var state = %CharacterState
+@onready var sprite: Sprite2D = %Sprite2D
 
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
@@ -11,6 +12,7 @@ func _physics_process(delta: float) -> void:
 	print(velocity)
 	
 	if state.state != state.States.ATTACK:
+		_handle_sprite_flip()
 		if velocity.is_zero_approx():
 			state._set_state(state.States.IDLE, animator)
 		else:
@@ -27,4 +29,8 @@ func _physics_process(delta: float) -> void:
 		
 	print(animator.get_queue())
 
-	
+func _handle_sprite_flip():
+	if velocity.x < 0:
+			sprite.flip_h = true
+	else:
+		sprite.flip_h = false
