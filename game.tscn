@@ -1,10 +1,7 @@
-[gd_scene load_steps=6 format=3 uid="uid://bnl1c68xxehcx"]
+[gd_scene load_steps=3 format=3 uid="uid://bnl1c68xxehcx"]
 
 [ext_resource type="PackedScene" uid="uid://bdbfmfdd6ay0m" path="res://background.tscn" id="1_suv8w"]
 [ext_resource type="PackedScene" uid="uid://8pbbbdtte5m7" path="res://test_level.tscn" id="2_iy184"]
-[ext_resource type="PackedScene" uid="uid://bcamq5835saae" path="res://player.tscn" id="3_35uav"]
-[ext_resource type="PackedScene" uid="uid://d0wdjv8wkfeky" path="res://minion.tscn" id="4_alp84"]
-[ext_resource type="PackedScene" uid="uid://nevg8go0dtve" path="res://resources/tree.tscn" id="5_3t4dx"]
 
 [node name="Game" type="Node2D"]
 y_sort_enabled = true
@@ -15,16 +12,3 @@ layer = -1
 [node name="Background" parent="CanvasLayer" instance=ExtResource("1_suv8w")]
 
 [node name="TestLevel" parent="." instance=ExtResource("2_iy184")]
-
-[node name="Minion" parent="." instance=ExtResource("4_alp84")]
-position = Vector2(920, 186)
-collision_layer = 2
-collision_mask = 2
-
-[node name="Player" parent="." instance=ExtResource("3_35uav")]
-position = Vector2(445, 149)
-
-[node name="Camera2D" type="Camera2D" parent="Player"]
-
-[node name="Tree" parent="." instance=ExtResource("5_3t4dx")]
-position = Vector2(119, 342)
