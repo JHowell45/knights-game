@@ -6,6 +6,8 @@ extends CharacterBody2D
 @onready var state = %CharacterState
 @onready var sprite: Sprite2D = %Sprite2D
 @onready var attack_timer: Timer = %Timer
+@onready var environment_collision: CollisionShape2D = $EnvironmentCollision
+@onready var direction = state.Direction
 
 
 func _physics_process(delta: float) -> void:
@@ -32,5 +34,7 @@ func _physics_process(delta: float) -> void:
 func _handle_sprite_flip():
 	if velocity.x < 0:
 			sprite.flip_h = true
+			direction = state.Direction.LEFT
 	else:
 		sprite.flip_h = false
+		direction = state.Direction.RIGHT
