@@ -17,6 +17,7 @@ enum States {
 }
 
 @export var state: States
+@onready var swap_animation: bool = false
 
 func _set_state(new_state: States, animator: AnimationPlayer, direction: Direction = Direction.NONE):
 	state = new_state
@@ -49,7 +50,8 @@ func attacking(animator: AnimationPlayer, direction: Direction):
 			animation_index = 1
 		Direction.RIGHT:
 			animation_index = 1
-	animator.play("Attack_%d" % animation_index)
+	animator.play("Attack_%d" % (animation_index + int(swap_animation)))
+	swap_animation = not swap_animation
 	await animator.animation_finished
 	_set_state(States.IDLE, animator)
 	
