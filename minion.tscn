@@ -240,4 +240,15 @@ health = 50
 [node name="MinionState" parent="." instance=ExtResource("4_5r8dl")]
 unique_name_in_owner = true
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+path_postprocessing = 1
+avoidance_enabled = true
+radius = 50.0
+avoidance_layers = 3
+avoidance_mask = 3
+debug_enabled = true
+debug_use_custom = true
+debug_path_custom_color = Color(0.817117, 0.000532904, 0.81846, 1)
+
 [connection signal="input_event" from="." to="." method="_on_input_event"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
