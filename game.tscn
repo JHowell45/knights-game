@@ -14,6 +14,6 @@ layer = -1
 [node name="TestLevel" parent="." instance=ExtResource("2_iy184")]
 
 [node name="Player" parent="." instance=ExtResource("3_35uav")]
-position = Vector2(310, 172)
+position = Vector2(1259, 740)
 
 [node name="Camera2D" type="Camera2D" parent="Player"]
