@@ -44,6 +44,7 @@ func _physics_process(delta: float) -> void:
 func _on_input_event(viewport: Node, event: InputEvent, shape_idx: int) -> void:
 	if event.is_action("left_click") and event.is_pressed() and not is_following:
 		is_following = true
+		following.emit()
 
 
 func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
