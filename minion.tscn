@@ -1,6 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://d0wdjv8wkfeky"]
+[gd_scene load_steps=12 format=3 uid="uid://d0wdjv8wkfeky"]
 
 [ext_resource type="Texture2D" uid="uid://ca8j4eahbetev" path="res://Pawn_Blue.png" id="1_d0jml"]
+[ext_resource type="Script" path="res://minion.gd" id="1_p05e5"]
 
 [sub_resource type="Animation" id="Animation_gqe2y"]
 length = 0.1
@@ -187,6 +188,7 @@ size = Vector2(20, 6)
 size = Vector2(40, 46)
 
 [node name="Minion" type="CharacterBody2D"]
+script = ExtResource("1_p05e5")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
