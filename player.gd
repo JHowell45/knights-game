@@ -32,10 +32,10 @@ func _physics_process(delta: float) -> void:
 		else:
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		attack_timer.start()
-	print(followers)
-	if followers:
-		print(followers[0])
-	print(global_position)
+	#print(followers)
+	#if followers:
+		#print(followers[0])
+	#print(global_position)
 
 func _handle_sprite_flip():
 	if velocity.x < 0:
@@ -47,5 +47,4 @@ func _handle_sprite_flip():
 
 
 func _on_minion_following(rid: RID) -> void:
-	print("GOT EMIT")
 	followers.append(rid)
