@@ -239,4 +239,5 @@ position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_eqgjx")
 debug_color = Color(0.850604, 0.342109, 0.394903, 0.42)
 
+[connection signal="dead" from="." to="." method="_on_dead"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
