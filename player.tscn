@@ -356,8 +356,8 @@ radius = 33.0
 height = 102.0
 
 [node name="Player" type="CharacterBody2D"]
-collision_layer = 3
-collision_mask = 5
+collision_layer = 2
+collision_mask = 4
 script = ExtResource("1_1j73h")
 speed = 10000
 
@@ -424,7 +424,7 @@ one_shot = true
 
 [node name="HitBoxRight" type="Area2D" parent="."]
 unique_name_in_owner = true
-collision_layer = 2
+collision_layer = 16
 collision_mask = 4
 
 [node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
