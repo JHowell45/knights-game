@@ -8,9 +8,10 @@ extends CharacterBody2D
 @onready var attack_timer: Timer = %Timer
 @onready var environment_collision: CollisionShape2D = $EnvironmentCollision
 @onready var direction = state.Direction
+@onready var hitbox_right = %HitboxRight
+@onready var hitbox_right_collision = $HitBoxRight/HitBoxRightCol
 
 @onready var followers: Array = []
-
 
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
@@ -23,14 +24,23 @@ func _physics_process(delta: float) -> void:
 		else:
 			state._set_state(state.States.RUN, animator)
 	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
+		print("Attacking")
 		if velocity.x != 0 && velocity.y != 0:
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		elif velocity.y < 0:
 			state._set_state(state.States.ATTACK, animator, state.Direction.UP)
 		elif velocity.y > 0:
 			state._set_state(state.States.ATTACK, animator, state.Direction.DOWN)
-		else:
+		elif velocity.x > 0:
+			hitbox_right_collision.disabled = false
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+			hitbox_right_collision.disabled = true
+		elif velocity.x < 0:
+			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+		else:
+			hitbox_right_collision.disabled = false
+			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+			hitbox_right_collision.disabled = true
 		attack_timer.start()
 	#print(followers)
 	#if followers:

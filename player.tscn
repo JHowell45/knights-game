@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=22 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1j73h"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="1_637lj"]
@@ -351,7 +351,13 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb4iw"]
 size = Vector2(20, 8)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jerc"]
+radius = 33.0
+height = 102.0
+
 [node name="Player" type="CharacterBody2D"]
+collision_layer = 3
+collision_mask = 5
 script = ExtResource("1_1j73h")
 speed = 10000
 
@@ -363,7 +369,7 @@ texture_filter = 1
 texture = ExtResource("1_637lj")
 hframes = 7
 vframes = 6
-frame = 22
+frame = 16
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -415,3 +421,13 @@ health = 100
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
+
+[node name="HitBoxRight" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 2
+collision_mask = 4
+
+[node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
+position = Vector2(56, -3)
+shape = SubResource("CapsuleShape2D_1jerc")
+disabled = true
