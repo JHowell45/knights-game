@@ -12,19 +12,20 @@ extends CharacterBody2D
 @onready var hitbox_right_collision = $HitBoxRight/HitBoxRightCol
 
 @onready var followers: Array = []
+	
 
 func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
 	move_and_slide()
 	
+	_handle_sprite_flip()
 	if state.state != state.States.ATTACK:
-		_handle_sprite_flip()
+		hitbox_right_collision.disabled = true
 		if velocity.is_zero_approx():
 			state._set_state(state.States.IDLE, animator)
 		else:
 			state._set_state(state.States.RUN, animator)
 	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
-		print("Attacking")
 		if velocity.x != 0 && velocity.y != 0:
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		elif velocity.y < 0:
@@ -34,13 +35,11 @@ func _physics_process(delta: float) -> void:
 		elif velocity.x > 0:
 			hitbox_right_collision.disabled = false
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-			hitbox_right_collision.disabled = true
 		elif velocity.x < 0:
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		else:
 			hitbox_right_collision.disabled = false
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-			hitbox_right_collision.disabled = true
 		attack_timer.start()
 	#print(followers)
 	#if followers:
