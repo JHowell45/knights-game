@@ -227,8 +227,13 @@ health = 20
 shape = SubResource("RectangleShape2D_48odv")
 
 [node name="HurtBox" type="Area2D" parent="."]
+collision_layer = 4
+collision_mask = 16
+monitorable = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HurtBox"]
 position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_eqgjx")
 debug_color = Color(0.850604, 0.342109, 0.394903, 0.42)
+
+[connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
