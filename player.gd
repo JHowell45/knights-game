@@ -51,7 +51,7 @@ func _handle_sprite_flip():
 	if velocity.x < 0:
 			sprite.flip_h = true
 			direction = state.Direction.LEFT
-	else:
+	elif velocity.x > 0:
 		sprite.flip_h = false
 		direction = state.Direction.RIGHT
 
