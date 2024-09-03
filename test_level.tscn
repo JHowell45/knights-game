@@ -60,4 +60,7 @@ position = Vector2(240, 1407)
 [node name="TorchGoblin3" parent="." instance=ExtResource("8_8mayh")]
 position = Vector2(627, 1431)
 
+[node name="TorchGoblin4" parent="." instance=ExtResource("8_8mayh")]
+position = Vector2(440, 471)
+
 [connection signal="following" from="Minion" to="Player" method="_on_minion_following"]
