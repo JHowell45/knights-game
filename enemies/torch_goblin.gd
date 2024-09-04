@@ -5,6 +5,10 @@ signal dead
 signal take_damage(amount: int)
 
 @export var max_health: int
+@onready var animator: AnimationPlayer = $AnimationPlayer
+
+func _ready() -> void:
+	animator.play("Idle")
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	take_damage.emit(area.get_parent().attack)
