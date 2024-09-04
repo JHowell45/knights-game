@@ -1,8 +1,7 @@
-[gd_scene load_steps=10 format=3 uid="uid://nevg8go0dtve"]
+[gd_scene load_steps=9 format=3 uid="uid://nevg8go0dtve"]
 
 [ext_resource type="Texture2D" uid="uid://dd6hiru8q35oj" path="res://resources/Tree.png" id="1_3kh0t"]
 [ext_resource type="Script" path="res://resources/tree.gd" id="1_brknv"]
-[ext_resource type="PackedScene" uid="uid://dgalw2mmy4h6q" path="res://components/health.tscn" id="2_44w5c"]
 
 [sub_resource type="Animation" id="Animation_sxa3h"]
 length = 0.1
@@ -161,6 +160,3 @@ libraries = {
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, 17.5)
 shape = SubResource("RectangleShape2D_cgmcv")
-
-[node name="Health" parent="." instance=ExtResource("2_44w5c")]
-health = 3
