@@ -3,9 +3,10 @@
 [ext_resource type="Texture2D" uid="uid://d21c8hqyo0sg6" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="1_41036"]
 [ext_resource type="PackedScene" uid="uid://dgalw2mmy4h6q" path="res://components/health.tscn" id="2_4lohv"]
 
-[node name="TextureProgressBar" type="TextureProgressBar"]
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="GoblinHealthBar" type="TextureProgressBar"]
+offset_right = 192.0
+offset_bottom = 64.0
+scale = Vector2(0.3, 0.3)
 value = 50.0
 texture_under = ExtResource("1_41036")
 texture_progress = ExtResource("1_41036")

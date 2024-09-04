@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
-[ext_resource type="PackedScene" uid="uid://dgalw2mmy4h6q" path="res://components/health.tscn" id="3_57rkn"]
+[ext_resource type="PackedScene" uid="uid://gc4ow27kv601" path="res://enemies/goblin_health_bar.tscn" id="3_iujlp"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
@@ -223,9 +223,6 @@ libraries = {
 "": SubResource("AnimationLibrary_xhcep")
 }
 
-[node name="Health" parent="." instance=ExtResource("3_57rkn")]
-health = 20
-
 [node name="EnvironmentCollision" type="CollisionShape2D" parent="."]
 shape = SubResource("RectangleShape2D_48odv")
 
@@ -238,6 +235,12 @@ monitorable = false
 position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_eqgjx")
 debug_color = Color(0.850604, 0.342109, 0.394903, 0.42)
+
+[node name="GoblinHealthBar" parent="." instance=ExtResource("3_iujlp")]
+offset_left = -29.0
+offset_top = -105.0
+offset_right = 163.0
+offset_bottom = -41.0
 
 [connection signal="dead" from="." to="." method="_on_dead"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
