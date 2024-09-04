@@ -24,6 +24,11 @@ version_control/autoload_on_startup=true
 
 enabled=PackedStringArray("res://addons/AsepriteWizard/plugin.cfg")
 
+[global_group]
+
+Knights=""
+Goblins="Enemy faction group."
+
 [input]
 
 left={
