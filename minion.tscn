@@ -238,7 +238,6 @@ shape = SubResource("RectangleShape2D_5041y")
 
 [node name="Health" parent="." instance=ExtResource("3_hjvrf")]
 unique_name_in_owner = true
-health = 50
 
 [node name="MinionState" parent="." instance=ExtResource("4_5r8dl")]
 unique_name_in_owner = true
