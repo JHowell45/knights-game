@@ -1,3 +1,5 @@
 extends Node
 
-@export var health: int
+@export var min_health: int
+@export var max_health: int
+@export var current_health: int
