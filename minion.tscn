@@ -1,11 +1,8 @@
-[gd_scene load_steps=16 format=3 uid="uid://d0wdjv8wkfeky"]
+[gd_scene load_steps=13 format=3 uid="uid://d0wdjv8wkfeky"]
 
 [ext_resource type="Texture2D" uid="uid://ca8j4eahbetev" path="res://Pawn_Blue.png" id="1_d0jml"]
 [ext_resource type="Script" path="res://minion.gd" id="1_p05e5"]
-[ext_resource type="PackedScene" uid="uid://dgalw2mmy4h6q" path="res://components/health.tscn" id="3_hjvrf"]
 [ext_resource type="PackedScene" uid="uid://ddhshpb0d1es" path="res://components/minion_state.tscn" id="4_5r8dl"]
-[ext_resource type="Texture2D" uid="uid://bgx5eu47c4oql" path="res://assets/Tiny Swords (Update 010)/UI/Ribbons/Ribbon_Blue_3Slides.png" id="5_0g4bq"]
-[ext_resource type="Script" path="res://minion_health_bar.gd" id="6_0o6r5"]
 
 [sub_resource type="Animation" id="Animation_gf8by"]
 length = 0.6
@@ -236,9 +233,6 @@ shape = SubResource("RectangleShape2D_gdohu")
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_5041y")
 
-[node name="Health" parent="." instance=ExtResource("3_hjvrf")]
-unique_name_in_owner = true
-
 [node name="MinionState" parent="." instance=ExtResource("4_5r8dl")]
 unique_name_in_owner = true
 
@@ -251,17 +245,6 @@ avoidance_mask = 3
 debug_enabled = true
 debug_use_custom = true
 debug_path_custom_color = Color(0.817117, 0.000532904, 0.81846, 1)
-
-[node name="MinionHealthBar" type="TextureProgressBar" parent="."]
-offset_left = -96.0
-offset_top = -98.0
-offset_right = 96.0
-offset_bottom = -34.0
-texture_under = ExtResource("5_0g4bq")
-texture_over = ExtResource("5_0g4bq")
-texture_progress = ExtResource("5_0g4bq")
-script = ExtResource("6_0o6r5")
-metadata/_edit_use_anchors_ = true
 
 [connection signal="input_event" from="." to="." method="_on_input_event"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

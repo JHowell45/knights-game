@@ -1,11 +1,10 @@
-[gd_scene load_steps=22 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=21 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player.gd" id="1_1j73h"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="1_637lj"]
 [ext_resource type="Script" path="res://animation_player.gd" id="3_fr88f"]
 [ext_resource type="PackedScene" uid="uid://djij8fvt7nkaj" path="res://components/character_state.tscn" id="3_w8f7q"]
 [ext_resource type="Script" path="res://label.gd" id="4_wgeqr"]
-[ext_resource type="PackedScene" uid="uid://dgalw2mmy4h6q" path="res://components/health.tscn" id="6_a1f3n"]
 
 [sub_resource type="Animation" id="Animation_ss3sb"]
 length = 0.6
@@ -413,9 +412,6 @@ offset_bottom = -44.0
 horizontal_alignment = 1
 vertical_alignment = 1
 script = ExtResource("4_wgeqr")
-
-[node name="Health" parent="." instance=ExtResource("6_a1f3n")]
-unique_name_in_owner = true
 
 [node name="Timer" type="Timer" parent="."]
 unique_name_in_owner = true
