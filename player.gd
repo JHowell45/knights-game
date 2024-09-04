@@ -20,8 +20,8 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	_handle_sprite_flip()
+	hitbox_right_collision.disabled = true
 	if state.state != state.States.ATTACK:
-		hitbox_right_collision.disabled = true
 		if velocity.is_zero_approx():
 			state._set_state(state.States.IDLE, animator)
 		else:
