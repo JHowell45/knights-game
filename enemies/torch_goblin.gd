@@ -2,16 +2,15 @@ extends CharacterBody2D
 
 signal dead
 
-@export var health: int
+signal take_damage(amount: int)
+
+@export var max_health: int
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
-	var damage = area.get_parent().attack
-	health -= damage
-	if health <= 0:
-		dead.emit()
+	take_damage.emit(area.get_parent().attack)
 
 
-func _on_dead() -> void:
+func _on_goblin_health_bar_dead() -> void:
 	var pos = global_position
 	queue_free()
 	const DEATH = preload("res://death.tscn")

@@ -1,8 +1,9 @@
-[gd_scene load_steps=13 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=14 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
-[ext_resource type="PackedScene" uid="uid://gc4ow27kv601" path="res://enemies/goblin_health_bar.tscn" id="3_iujlp"]
+[ext_resource type="Texture2D" uid="uid://d21c8hqyo0sg6" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="4_7p4tn"]
+[ext_resource type="Script" path="res://enemies/goblin_health_bar.gd" id="5_t0fd0"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
@@ -192,7 +193,7 @@ size = Vector2(44, 58)
 collision_layer = 4
 collision_mask = 18
 script = ExtResource("1_7w448")
-health = 6
+max_health = 6
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -236,11 +237,19 @@ position = Vector2(0, -29)
 shape = SubResource("RectangleShape2D_eqgjx")
 debug_color = Color(0.850604, 0.342109, 0.394903, 0.42)
 
-[node name="GoblinHealthBar" parent="." instance=ExtResource("3_iujlp")]
+[node name="GoblinHealthBar" type="TextureProgressBar" parent="."]
+visible = false
 offset_left = -29.0
-offset_top = -105.0
+offset_top = -98.0
 offset_right = 163.0
-offset_bottom = -41.0
+offset_bottom = -34.0
+scale = Vector2(0.3, 0.3)
+texture_under = ExtResource("4_7p4tn")
+texture_progress = ExtResource("4_7p4tn")
+tint_under = Color(0.140447, 0.140447, 0.140447, 1)
+tint_progress = Color(0.960381, 0.000863899, 0.0682812, 1)
+script = ExtResource("5_t0fd0")
 
-[connection signal="dead" from="." to="." method="_on_dead"]
+[connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
+[connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
