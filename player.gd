@@ -46,7 +46,7 @@ func _physics_process(delta: float) -> void:
 			_enable_hitbox(state.Direction.LEFT)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		else:
-			_enable_hitbox(state.Direction.RIGHT)
+			_enable_hitbox(direction)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		attack_timer.start()
 	#print(followers)
