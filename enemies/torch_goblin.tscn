@@ -9,7 +9,6 @@
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -37,7 +36,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_n2vsa"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -65,7 +63,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_rw5hr"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -93,7 +90,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_1nbjf"]
 length = 0.7
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -121,7 +117,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_pd2t6"]
 length = 0.3
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -149,7 +144,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_aty2q"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -207,7 +201,7 @@ position = Vector2(0, -32)
 texture = ExtResource("2_roic8")
 hframes = 6
 vframes = 6
-frame = 22
+frame = 28
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
