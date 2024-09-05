@@ -193,7 +193,7 @@ size = Vector2(44, 58)
 [sub_resource type="CircleShape2D" id="CircleShape2D_igrco"]
 radius = 266.017
 
-[node name="TorchGoblin" type="CharacterBody2D"]
+[node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 18
 script = ExtResource("1_7w448")
@@ -254,7 +254,7 @@ tint_under = Color(0.140447, 0.140447, 0.140447, 1)
 tint_progress = Color(0.960381, 0.000863899, 0.0682812, 1)
 script = ExtResource("5_t0fd0")
 
-[node name="Vision" type="Area2D" parent="." groups=["Goblins"]]
+[node name="Vision" type="Area2D" parent="."]
 collision_layer = 4
 collision_mask = 2
 script = ExtResource("5_4mccd")
