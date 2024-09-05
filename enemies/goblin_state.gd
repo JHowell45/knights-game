@@ -3,9 +3,7 @@ extends Node
 enum States {
 	IDLE,
 	RUN,
-	CARRY,
-	BUILD,
-	CHOP
+	ATTACK,
 }
 
 func _set_state(state: States, animator: AnimationPlayer):
@@ -14,12 +12,8 @@ func _set_state(state: States, animator: AnimationPlayer):
 			idle(animator)
 		States.RUN:
 			run(animator)
-		States.CARRY:
-			carry(animator)
-		States.BUILD:
-			build(animator)
-		States.CHOP:
-			chop(animator)
+		States.ATTACK:
+			attack(animator)
 		
 	
 func idle(animator: AnimationPlayer):
@@ -28,12 +22,6 @@ func idle(animator: AnimationPlayer):
 func run(animator: AnimationPlayer):
 	animator.play("Run")
 	
-func carry(animator: AnimationPlayer):
+func attack(animator: AnimationPlayer):
 	animator.play("Carry")
-	
-func build(animator: AnimationPlayer):
-	animator.play("Build")
-	
-func chop(animator: AnimationPlayer):
-	animator.play("Chop")
 	
