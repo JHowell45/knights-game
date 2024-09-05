@@ -20,7 +20,6 @@ func _set_state(state: States, animator: AnimationPlayer):
 			build(animator)
 		States.CHOP:
 			chop(animator)
-		
 	
 func idle(animator: AnimationPlayer):
 	animator.play("Idle")

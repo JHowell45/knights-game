@@ -14,7 +14,6 @@ func _set_state(state: States, animator: AnimationPlayer):
 			run(animator)
 		States.ATTACK:
 			attack(animator)
-		
 	
 func idle(animator: AnimationPlayer):
 	animator.play("Idle")
