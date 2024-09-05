@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=19 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
@@ -9,6 +9,7 @@
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
+loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -188,6 +189,14 @@ size = Vector2(44, 58)
 [sub_resource type="CircleShape2D" id="CircleShape2D_igrco"]
 radius = 266.017
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agmvx"]
+radius = 25.0
+height = 66.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3xae"]
+radius = 15.0
+height = 96.0
+
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 18
@@ -199,9 +208,10 @@ speed = 8000
 texture_filter = 1
 position = Vector2(0, -32)
 texture = ExtResource("2_roic8")
+flip_h = true
 hframes = 6
 vframes = 6
-frame = 28
+frame = 26
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -257,7 +267,7 @@ collision_mask = 2
 script = ExtResource("5_4mccd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
-position = Vector2(0, -40)
+position = Vector2(-2, -40)
 shape = SubResource("CircleShape2D_igrco")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
@@ -265,6 +275,32 @@ unique_name_in_owner = true
 
 [node name="GoblinState" parent="." instance=ExtResource("6_4kgoe")]
 unique_name_in_owner = true
+
+[node name="HitBoxRight" type="Area2D" parent="."]
+
+[node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
+position = Vector2(40, -27)
+shape = SubResource("CapsuleShape2D_agmvx")
+
+[node name="HitBoxLeft" type="Area2D" parent="."]
+
+[node name="HitBoxLeftCol" type="CollisionShape2D" parent="HitBoxLeft"]
+position = Vector2(-43, -27)
+shape = SubResource("CapsuleShape2D_agmvx")
+
+[node name="HitBoxUp" type="Area2D" parent="."]
+
+[node name="HitBoxUpCol" type="CollisionShape2D" parent="HitBoxUp"]
+position = Vector2(0, -73)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o3xae")
+
+[node name="HitBoxDown" type="Area2D" parent="."]
+
+[node name="HitBoxDownCol" type="CollisionShape2D" parent="HitBoxDown"]
+position = Vector2(0, 13)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_o3xae")
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
