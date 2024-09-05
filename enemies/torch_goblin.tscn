@@ -199,7 +199,7 @@ height = 96.0
 
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
-collision_mask = 18
+collision_mask = 19
 script = ExtResource("1_7w448")
 max_health = 6
 speed = 8000
@@ -277,18 +277,24 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="HitBoxRight" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
 [node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
 position = Vector2(40, -27)
 shape = SubResource("CapsuleShape2D_agmvx")
 
 [node name="HitBoxLeft" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
 [node name="HitBoxLeftCol" type="CollisionShape2D" parent="HitBoxLeft"]
 position = Vector2(-43, -27)
 shape = SubResource("CapsuleShape2D_agmvx")
 
 [node name="HitBoxUp" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
 [node name="HitBoxUpCol" type="CollisionShape2D" parent="HitBoxUp"]
 position = Vector2(0, -73)
@@ -296,6 +302,8 @@ rotation = 1.5708
 shape = SubResource("CapsuleShape2D_o3xae")
 
 [node name="HitBoxDown" type="Area2D" parent="."]
+collision_layer = 32
+collision_mask = 2
 
 [node name="HitBoxDownCol" type="CollisionShape2D" parent="HitBoxDown"]
 position = Vector2(0, 13)
@@ -307,3 +315,4 @@ shape = SubResource("CapsuleShape2D_o3xae")
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
 [connection signal="attack" from="Vision" to="." method="_on_vision_attack"]
 [connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
+[connection signal="body_entered" from="HitBoxRight" to="." method="_on_hit_box_right_body_entered"]
