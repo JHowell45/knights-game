@@ -11,6 +11,7 @@ signal take_damage(amount: int)
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var player = get_node("/root/Game/TestLevel/Player")
 @onready var nav: NavigationAgent2D = %NavigationAgent2D
+@onready var state: Node = %GoblinState
 
 func _ready() -> void:
 	animator.play("Idle")
@@ -30,6 +31,11 @@ func _physics_process(delta: float) -> void:
 			else:
 				_on_navigation_agent_2d_velocity_computed(new_velocity)
 	move_and_slide()
+	
+	if velocity.is_zero_approx():
+		state._set_state(state.States.IDLE, animator)
+	else:
+		state._set_state(state.States.RUN, animator)
 	
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:

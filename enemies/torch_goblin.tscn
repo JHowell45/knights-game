@@ -264,6 +264,7 @@ shape = SubResource("CircleShape2D_igrco")
 unique_name_in_owner = true
 
 [node name="GoblinState" parent="." instance=ExtResource("6_4kgoe")]
+unique_name_in_owner = true
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
