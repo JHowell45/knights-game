@@ -232,6 +232,7 @@ libraries = {
 shape = SubResource("RectangleShape2D_48odv")
 
 [node name="HurtBox" type="Area2D" parent="."]
+unique_name_in_owner = true
 collision_layer = 4
 collision_mask = 16
 monitorable = false
@@ -263,6 +264,10 @@ script = ExtResource("5_4mccd")
 position = Vector2(0, -40)
 shape = SubResource("CircleShape2D_igrco")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
+[connection signal="attack" from="Vision" to="." method="_on_vision_attack"]
