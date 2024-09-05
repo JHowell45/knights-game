@@ -8,10 +8,12 @@ signal take_damage(amount: int)
 @export var speed: int
 
 @onready var attacking: bool = false
+@onready var sprite: Sprite2D = $Sprite2D
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var player = get_node("/root/Game/TestLevel/Player")
 @onready var nav: NavigationAgent2D = %NavigationAgent2D
 @onready var state: Node = %GoblinState
+@onready var direction
 
 @onready var hit_box_right_col: CollisionShape2D = $HitBoxRight/HitBoxRightCol
 @onready var hit_box_left_col: CollisionShape2D = $HitBoxLeft/HitBoxLeftCol
@@ -22,6 +24,8 @@ func _ready() -> void:
 	animator.play("Idle")
 	
 func _physics_process(delta: float) -> void:
+	_handle_sprite_flip()
+	_disable_hitboxes()
 	if attacking:
 		var new_position = player.global_position
 		nav.target_position = new_position
@@ -41,7 +45,15 @@ func _physics_process(delta: float) -> void:
 		state._set_state(state.States.IDLE, animator)
 	else:
 		state._set_state(state.States.RUN, animator)
-	
+
+func _handle_sprite_flip():
+	if velocity.x < 0:
+			sprite.flip_h = true
+			direction = state.Direction.LEFT
+	elif velocity.x > 0:
+		sprite.flip_h = false
+		direction = state.Direction.RIGHT
+		
 func _disable_hitboxes() -> void:
 	hit_box_up_col.disabled = true
 	hit_box_right_col.disabled = true
