@@ -198,6 +198,7 @@ collision_layer = 4
 collision_mask = 18
 script = ExtResource("1_7w448")
 max_health = 6
+speed = 8000
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture_filter = 1
@@ -271,3 +272,4 @@ unique_name_in_owner = true
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
 [connection signal="attack" from="Vision" to="." method="_on_vision_attack"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]

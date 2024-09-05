@@ -5,6 +5,7 @@ signal dead
 signal take_damage(amount: int)
 
 @export var max_health: int
+@export var speed: int
 
 @onready var attacking: bool = false
 @onready var animator: AnimationPlayer = $AnimationPlayer
@@ -16,7 +17,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	if attacking:
-		var new_position = player.hurt_box.global_position
+		var new_position = player.global_position
 		nav.target_position = new_position
 		
 		if not nav.is_navigation_finished():
@@ -46,3 +47,7 @@ func _on_goblin_health_bar_dead() -> void:
 
 func _on_vision_attack(enemy: CharacterBody2D) -> void:
 	attacking = true
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	velocity = safe_velocity
