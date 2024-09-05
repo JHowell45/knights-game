@@ -9,8 +9,11 @@ extends CharacterBody2D
 @onready var attack_timer: Timer = %Timer
 @onready var environment_collision: CollisionShape2D = $EnvironmentCollision
 @onready var direction = state.Direction
-@onready var hitbox_right = %HitboxRight
-@onready var hitbox_right_collision = $HitBoxRight/HitBoxRightCol
+
+@onready var hit_box_top_col: CollisionShape2D = $HitBoxRightTop/HitBoxTopCol
+@onready var hit_box_right_col: CollisionShape2D = $HitBoxRight/HitBoxRightCol
+@onready var hit_box_bottom_col: CollisionShape2D = $HitBoxBottom/HitBoxBottomCol
+@onready var hit_box_left_col: CollisionShape2D = $HitBoxLeft/HitBoxLeftCol
 
 @onready var followers: Array = []
 	
@@ -20,7 +23,7 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 	_handle_sprite_flip()
-	hitbox_right_collision.disabled = true
+	_disable_hitboxes()
 	if state.state != state.States.ATTACK:
 		if velocity.is_zero_approx():
 			state._set_state(state.States.IDLE, animator)
@@ -28,18 +31,22 @@ func _physics_process(delta: float) -> void:
 			state._set_state(state.States.RUN, animator)
 	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
 		if velocity.x != 0 && velocity.y != 0:
+			_enable_hitbox(state.Direction.LEFT)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		elif velocity.y < 0:
+			_enable_hitbox(state.Direction.UP)
 			state._set_state(state.States.ATTACK, animator, state.Direction.UP)
 		elif velocity.y > 0:
+			_enable_hitbox(state.Direction.DOWN)
 			state._set_state(state.States.ATTACK, animator, state.Direction.DOWN)
 		elif velocity.x > 0:
-			hitbox_right_collision.disabled = false
+			_enable_hitbox(state.Direction.RIGHT)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		elif velocity.x < 0:
+			_enable_hitbox(state.Direction.LEFT)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		else:
-			hitbox_right_collision.disabled = false
+			_enable_hitbox(state.Direction.RIGHT)
 			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
 		attack_timer.start()
 	#print(followers)
@@ -55,6 +62,22 @@ func _handle_sprite_flip():
 		sprite.flip_h = false
 		direction = state.Direction.RIGHT
 
+func _disable_hitboxes() -> void:
+	hit_box_top_col.disabled = true
+	hit_box_right_col.disabled = true
+	hit_box_left_col.disabled = true
+	hit_box_bottom_col.disabled = true
+
+func _enable_hitbox(direction) -> void:
+	match direction:
+		state.Direction.UP:
+			hit_box_top_col.disabled = false
+		state.Direction.RIGHT:
+			hit_box_right_col.disabled = false
+		state.Direction.LEFT:
+			hit_box_left_col.disabled = false
+		state.Direction.DOWN:
+			hit_box_bottom_col.disabled = false
 
 func _on_minion_following(rid: RID) -> void:
 	followers.append(rid)

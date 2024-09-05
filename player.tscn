@@ -369,7 +369,7 @@ texture_filter = 1
 texture = ExtResource("1_637lj")
 hframes = 7
 vframes = 6
-frame = 12
+frame = 26
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -418,6 +418,17 @@ unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
 
+[node name="HitBoxRightTop" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 4
+
+[node name="HitBoxTopCol" type="CollisionShape2D" parent="HitBoxRightTop"]
+position = Vector2(-2, -41)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1jerc")
+disabled = true
+
 [node name="HitBoxRight" type="Area2D" parent="."]
 unique_name_in_owner = true
 collision_layer = 16
@@ -425,5 +436,26 @@ collision_mask = 4
 
 [node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
 position = Vector2(56, -3)
+shape = SubResource("CapsuleShape2D_1jerc")
+disabled = true
+
+[node name="HitBoxBottom" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 4
+
+[node name="HitBoxBottomCol" type="CollisionShape2D" parent="HitBoxBottom"]
+position = Vector2(0, 48)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_1jerc")
+disabled = true
+
+[node name="HitBoxLeft" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 16
+collision_mask = 4
+
+[node name="HitBoxLeftCol" type="CollisionShape2D" parent="HitBoxLeft"]
+position = Vector2(-56, -3)
 shape = SubResource("CapsuleShape2D_1jerc")
 disabled = true
