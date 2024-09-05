@@ -13,6 +13,11 @@ signal take_damage(amount: int)
 @onready var nav: NavigationAgent2D = %NavigationAgent2D
 @onready var state: Node = %GoblinState
 
+@onready var hit_box_right_col: CollisionShape2D = $HitBoxRight/HitBoxRightCol
+@onready var hit_box_left_col: CollisionShape2D = $HitBoxLeft/HitBoxLeftCol
+@onready var hit_box_up_col: CollisionShape2D = $HitBoxUp/HitBoxUpCol
+@onready var hit_box_down_col: CollisionShape2D = $HitBoxDown/HitBoxDownCol
+
 func _ready() -> void:
 	animator.play("Idle")
 	
@@ -37,6 +42,22 @@ func _physics_process(delta: float) -> void:
 	else:
 		state._set_state(state.States.RUN, animator)
 	
+func _disable_hitboxes() -> void:
+	hit_box_up_col.disabled = true
+	hit_box_right_col.disabled = true
+	hit_box_left_col.disabled = true
+	hit_box_down_col.disabled = true
+
+func _enable_hitbox(direction) -> void:
+	match direction:
+		state.Direction.UP:
+			hit_box_up_col.disabled = false
+		state.Direction.RIGHT:
+			hit_box_right_col.disabled = false
+		state.Direction.LEFT:
+			hit_box_left_col.disabled = false
+		state.Direction.DOWN:
+			hit_box_down_col.disabled = false
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	take_damage.emit(area.get_parent().attack)
