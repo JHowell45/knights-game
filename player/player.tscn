@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gqymv"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="2_uvg3k"]
-[ext_resource type="Script" path="res://animation_player.gd" id="3_4pksv"]
+[ext_resource type="Script" path="res://player/animation_player.gd" id="3_4pksv"]
 [ext_resource type="PackedScene" uid="uid://djij8fvt7nkaj" path="res://components/character_state.tscn" id="4_jtrbq"]
 [ext_resource type="Script" path="res://label.gd" id="5_fvj7k"]
 
