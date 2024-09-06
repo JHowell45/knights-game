@@ -9,7 +9,7 @@ extends CharacterBody2D
 @onready var attack_timer: Timer = %Timer
 @onready var environment_collision: CollisionShape2D = $EnvironmentCollision
 @onready var hurt_box: Area2D = %HurtBox
-@onready var direction = state.Direction
+@onready var direction = state.Direction.RIGHT
 
 @onready var hit_box_top_col: CollisionShape2D = $HitBoxRightTop/HitBoxTopCol
 @onready var hit_box_right_col: CollisionShape2D = $HitBoxRight/HitBoxRightCol
