@@ -27,7 +27,7 @@ func _ready() -> void:
 	
 func _physics_process(delta: float) -> void:
 	_handle_sprite_flip()
-	#_disable_hitboxes()
+	_disable_hitboxes()
 	if attacking:
 		var new_position = player.global_position
 		nav.target_position = new_position
