@@ -80,10 +80,10 @@ func _on_hurt_box_area_entered(area: Area2D) -> void:
 func _on_goblin_health_bar_dead() -> void:
 	var pos = global_position
 	queue_free()
-	const DEATH = preload("res://death.tscn")
-	var death = DEATH.instantiate()
-	death.global_position = pos
-	get_parent().add_child(death)
+	const GOLD = preload("res://resources/gold.tscn")
+	var gold = GOLD.instantiate()
+	gold.global_position = pos
+	get_parent().add_child(gold)
 
 
 func _on_vision_attack(enemy: CharacterBody2D) -> void:
