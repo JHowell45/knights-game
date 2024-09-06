@@ -15,10 +15,10 @@ func _ready() -> void:
 	current_state._enter()
 	
 func _process(delta) -> void:
-	pass
+	current_state._update(delta)
 	
 func _physics_process(delta) -> void:
-	pass
+	current_state._physics_update(delta)
 			
 func _on_state_changed(new_state: StringName) -> void:
 	var next_state = states.get(new_state)
