@@ -1,0 +1,77 @@
+[gd_scene load_steps=12 format=3 uid="uid://capvk2qxi4m8w"]
+
+[ext_resource type="Script" path="res://resources/gold.gd" id="1_6nbu7"]
+[ext_resource type="Texture2D" uid="uid://8n1qoliovrdd" path="res://assets/Tiny Swords (Update 010)/Resources/Resources/G_Spawn.png" id="1_j4apd"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_qetdj"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(0, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bf4aa"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(128, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6reie"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(256, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ok0or"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(384, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hkmvd"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(512, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_liyic"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(640, 0, 128, 128)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_8342j"]
+atlas = ExtResource("1_j4apd")
+region = Rect2(768, 0, 128, 128)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_pb3mv"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_qetdj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bf4aa")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6reie")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ok0or")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hkmvd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_liyic")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_8342j")
+}],
+"loop": false,
+"name": &"spawn",
+"speed": 8.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_i40x4"]
+radius = 22.0
+
+[node name="Gold" type="Area2D"]
+script = ExtResource("1_6nbu7")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_pb3mv")
+animation = &"spawn"
+frame = 6
+frame_progress = 1.0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(4, 11)
+shape = SubResource("CircleShape2D_i40x4")

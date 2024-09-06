@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=4 uid="uid://8pbbbdtte5m7"]
+[gd_scene load_steps=11 format=4 uid="uid://8pbbbdtte5m7"]
 
 [ext_resource type="PackedScene" uid="uid://bnny1qwo6dxd0" path="res://tilemaps/flat_tile_map.tscn" id="1_afpq7"]
 [ext_resource type="PackedScene" uid="uid://crfjm8epdktd1" path="res://tilemaps/elevation_tile_map.tscn" id="2_w2kuv"]
@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://nevg8go0dtve" path="res://resources/tree.tscn" id="6_4s7ly"]
 [ext_resource type="PackedScene" uid="uid://deeinb6rbduvc" path="res://home.tscn" id="7_ppi4g"]
 [ext_resource type="PackedScene" uid="uid://cxuwt5eu8cvv8" path="res://enemies/torch_goblin.tscn" id="8_8mayh"]
+[ext_resource type="PackedScene" uid="uid://capvk2qxi4m8w" path="res://resources/gold.tscn" id="10_pl6xu"]
 
 [node name="TestLevel" type="Node2D"]
 y_sort_enabled = true
@@ -62,5 +63,8 @@ position = Vector2(627, 1431)
 
 [node name="TorchGoblin4" parent="." instance=ExtResource("8_8mayh")]
 position = Vector2(508, 331)
+
+[node name="Gold" parent="." instance=ExtResource("10_pl6xu")]
+position = Vector2(199, 306)
 
 [connection signal="following" from="Minion" to="Player" method="_on_minion_following"]
