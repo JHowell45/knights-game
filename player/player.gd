@@ -23,33 +23,33 @@ func _physics_process(delta: float) -> void:
 	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
 	move_and_slide()
 	
-	_handle_sprite_flip()
-	_disable_hitboxes()
-	if state.state != state.States.ATTACK:
-		if velocity.is_zero_approx():
-			state._set_state(state.States.IDLE, animator)
-		else:
-			state._set_state(state.States.RUN, animator)
-	if Input.is_action_pressed("attack") and attack_timer.is_stopped():
-		if velocity.x != 0 && velocity.y != 0:
-			_enable_hitbox(state.Direction.LEFT)
-			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-		elif velocity.y < 0:
-			_enable_hitbox(state.Direction.UP)
-			state._set_state(state.States.ATTACK, animator, state.Direction.UP)
-		elif velocity.y > 0:
-			_enable_hitbox(state.Direction.DOWN)
-			state._set_state(state.States.ATTACK, animator, state.Direction.DOWN)
-		elif velocity.x > 0:
-			_enable_hitbox(state.Direction.RIGHT)
-			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-		elif velocity.x < 0:
-			_enable_hitbox(state.Direction.LEFT)
-			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-		else:
-			_enable_hitbox(direction)
-			state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
-		attack_timer.start()
+	#_handle_sprite_flip()
+	#_disable_hitboxes()
+	#if state.state != state.States.ATTACK:
+		#if velocity.is_zero_approx():
+			#state._set_state(state.States.IDLE, animator)
+		#else:
+			#state._set_state(state.States.RUN, animator)
+	#if Input.is_action_pressed("attack") and attack_timer.is_stopped():
+		#if velocity.x != 0 && velocity.y != 0:
+			#_enable_hitbox(state.Direction.LEFT)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+		#elif velocity.y < 0:
+			#_enable_hitbox(state.Direction.UP)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.UP)
+		#elif velocity.y > 0:
+			#_enable_hitbox(state.Direction.DOWN)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.DOWN)
+		#elif velocity.x > 0:
+			#_enable_hitbox(state.Direction.RIGHT)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+		#elif velocity.x < 0:
+			#_enable_hitbox(state.Direction.LEFT)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+		#else:
+			#_enable_hitbox(direction)
+			#state._set_state(state.States.ATTACK, animator, state.Direction.LEFT)
+		#attack_timer.start()
 	#print(followers)
 	#if followers:
 		#print(followers[0])
