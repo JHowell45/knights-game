@@ -286,6 +286,9 @@ offset_right = 20.0
 offset_bottom = -78.0
 script = ExtResource("8_raqiy")
 
+[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
+unique_name_in_owner = true
+
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
