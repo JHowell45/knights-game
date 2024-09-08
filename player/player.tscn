@@ -468,13 +468,13 @@ _data = {
 size = Vector2(20, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4c05"]
-size = Vector2(62, 98)
+size = Vector2(68, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6etim"]
-size = Vector2(62, 98)
+size = Vector2(73, 98)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_fw41r"]
-size = Vector2(112, 42)
+size = Vector2(112, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqhts"]
 size = Vector2(102, 50)
@@ -568,7 +568,7 @@ monitoring = false
 script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
-position = Vector2(55, -11)
+position = Vector2(52, -11)
 shape = SubResource("RectangleShape2D_r4c05")
 
 [node name="HitBoxLeft" type="Area2D" parent="."]
@@ -578,7 +578,7 @@ monitoring = false
 script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxLeft"]
-position = Vector2(-57, -11)
+position = Vector2(-51.5, -11)
 shape = SubResource("RectangleShape2D_6etim")
 
 [node name="HitBoxUp" type="Area2D" parent="."]
@@ -588,7 +588,7 @@ monitoring = false
 script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxUp"]
-position = Vector2(0, -43)
+position = Vector2(0, -36.5)
 shape = SubResource("RectangleShape2D_fw41r")
 
 [node name="HitBoxDown" type="Area2D" parent="."]
