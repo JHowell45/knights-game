@@ -5,7 +5,7 @@
 [ext_resource type="PackedScene" uid="uid://du7x5lmekubq5" path="res://tilemaps/foam_tile_map.tscn" id="3_v312j"]
 [ext_resource type="PackedScene" uid="uid://bcamq5835saae" path="res://player/player.tscn" id="4_3ch70"]
 [ext_resource type="PackedScene" uid="uid://dvoq2spxt73n7" path="res://tilemaps/bridge_tile_map.tscn" id="4_pq684"]
-[ext_resource type="PackedScene" uid="uid://d0wdjv8wkfeky" path="res://minion.tscn" id="5_mbnsa"]
+[ext_resource type="PackedScene" uid="uid://d0wdjv8wkfeky" path="res://minion/minion.tscn" id="5_mbnsa"]
 [ext_resource type="PackedScene" uid="uid://nevg8go0dtve" path="res://resources/tree.tscn" id="6_4s7ly"]
 [ext_resource type="PackedScene" uid="uid://deeinb6rbduvc" path="res://home.tscn" id="7_ppi4g"]
 [ext_resource type="PackedScene" uid="uid://cxuwt5eu8cvv8" path="res://enemies/torch_goblin.tscn" id="8_8mayh"]
