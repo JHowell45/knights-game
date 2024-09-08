@@ -1,4 +1,4 @@
-extends CharacterBody2D
+class_name TorchGoblin extends CharacterBody2D
 
 signal dead
 
