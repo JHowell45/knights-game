@@ -17,3 +17,7 @@ func physics_update(_delta: float) -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	pass
+
+
+func _on_vision_body_entered(body: Node2D) -> void:
+	transition.emit(HUNT)
