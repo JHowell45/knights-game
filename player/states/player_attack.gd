@@ -26,7 +26,6 @@ func handle_input(_event: InputEvent) -> void:
 	pass
 
 func _attack_direction() -> int:
-	print("_attack_direction")
 	var digit := 1
 	match player.direction:
 		player.Direction.UP:
