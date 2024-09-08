@@ -1,5 +1,8 @@
 class_name PlayerState extends State
 
+const IDLE = "PlayerIdle"
+const RUN = "PlayerRun"
+
 var player: Player
 
 func _ready() -> void:
