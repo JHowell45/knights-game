@@ -31,3 +31,7 @@ func handle_input(_event: InputEvent) -> void:
 
 func _on_vision_body_entered(body: Node2D) -> void:
 	hunt_player(body)
+
+
+func _on_vision_body_exited(body: Node2D) -> void:
+	return_to_patrol(body)
