@@ -1,8 +1,7 @@
-[gd_scene load_steps=13 format=3 uid="uid://d0wdjv8wkfeky"]
+[gd_scene load_steps=12 format=3 uid="uid://d0wdjv8wkfeky"]
 
 [ext_resource type="Texture2D" uid="uid://ca8j4eahbetev" path="res://Pawn_Blue.png" id="1_d0jml"]
-[ext_resource type="Script" path="res://minion.gd" id="1_p05e5"]
-[ext_resource type="PackedScene" uid="uid://ddhshpb0d1es" path="res://components/minion_state.tscn" id="4_5r8dl"]
+[ext_resource type="Script" path="res://minion/minion.gd" id="1_p05e5"]
 
 [sub_resource type="Animation" id="Animation_gf8by"]
 length = 0.6
@@ -232,9 +231,6 @@ shape = SubResource("RectangleShape2D_gdohu")
 [node name="HurtBox" type="CollisionShape2D" parent="."]
 position = Vector2(0, 3)
 shape = SubResource("RectangleShape2D_5041y")
-
-[node name="MinionState" parent="." instance=ExtResource("4_5r8dl")]
-unique_name_in_owner = true
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 path_postprocessing = 1
