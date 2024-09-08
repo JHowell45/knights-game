@@ -1,9 +1,11 @@
-[gd_scene load_steps=19 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=21 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gqymv"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="2_uvg3k"]
 [ext_resource type="Script" path="res://player/animation_player.gd" id="3_4pksv"]
+[ext_resource type="Script" path="res://state_machine.gd" id="5_0ggkl"]
 [ext_resource type="Script" path="res://label.gd" id="5_fvj7k"]
+[ext_resource type="Script" path="res://player/states/player_idle.gd" id="6_4jhvp"]
 
 [sub_resource type="Animation" id="Animation_ss3sb"]
 length = 0.6
@@ -409,3 +411,11 @@ script = ExtResource("5_fvj7k")
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
+
+[node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+unique_name_in_owner = true
+script = ExtResource("5_0ggkl")
+state = NodePath("PlayerIdle")
+
+[node name="PlayerIdle" type="Node" parent="StateMachine"]
+script = ExtResource("6_4jhvp")
