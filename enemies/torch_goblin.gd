@@ -11,7 +11,6 @@ signal take_damage(amount: int)
 @onready var animator: AnimationPlayer = $AnimationPlayer
 @onready var player = get_node("/root/Game/TestLevel/Player")
 @onready var nav: NavigationAgent2D = %NavigationAgent2D
-@onready var state: Node = %GoblinState
 @onready var direction
 @onready var idle_timer: Timer = %IdleTimer
 @onready var patrol_zone: Area2D = %PatrolZone
