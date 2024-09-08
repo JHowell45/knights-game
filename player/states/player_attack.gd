@@ -16,7 +16,6 @@ func update(_delta: float) -> void:
 func physics_update(_delta: float) -> void:
 	player.animator.play(animation)
 	await player.animator.animation_finished
-	print("next")
 	if Input.get_vector("left", "right", "up", "down").is_zero_approx():
 		transition.emit(IDLE)
 	else:
