@@ -257,6 +257,10 @@ state = NodePath("GoblinIdle")
 [node name="GoblinIdle" type="Node" parent="StateMachine"]
 script = ExtResource("6_oml2k")
 
+[node name="IdleTimer" type="Timer" parent="."]
+unique_name_in_owner = true
+one_shot = true
+
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
