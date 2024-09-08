@@ -1,4 +1,4 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=19 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
@@ -7,6 +7,7 @@
 [ext_resource type="Script" path="res://enemies/goblin_health_bar.gd" id="5_t0fd0"]
 [ext_resource type="Script" path="res://enemies/states/goblin_idle.gd" id="6_oml2k"]
 [ext_resource type="Script" path="res://enemies/states/goblin_patrol.gd" id="7_m7o5k"]
+[ext_resource type="Script" path="res://enemies/state_label.gd" id="8_raqiy"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
@@ -255,6 +256,7 @@ tint_progress = Color(0.960381, 0.000863899, 0.0682812, 1)
 script = ExtResource("5_t0fd0")
 
 [node name="StateMachine" type="Node" parent="." node_paths=PackedStringArray("state")]
+unique_name_in_owner = true
 script = ExtResource("5_jwun5")
 state = NodePath("GoblinIdle")
 
@@ -276,6 +278,13 @@ collision_mask = 0
 [node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolZone"]
 shape = SubResource("CircleShape2D_mv2yc")
 disabled = true
+
+[node name="StateLabel" type="Label" parent="."]
+offset_left = -20.0
+offset_top = -101.0
+offset_right = 20.0
+offset_bottom = -78.0
+script = ExtResource("8_raqiy")
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
