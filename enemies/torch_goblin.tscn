@@ -313,3 +313,5 @@ shape = SubResource("CircleShape2D_q0wit")
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
 [connection signal="body_entered" from="Vision" to="StateMachine/GoblinIdle" method="_on_vision_body_entered"]
 [connection signal="body_entered" from="Vision" to="StateMachine/GoblinPatrol" method="_on_vision_body_entered"]
+[connection signal="body_exited" from="Vision" to="StateMachine/GoblinIdle" method="_on_vision_body_exited"]
+[connection signal="body_exited" from="Vision" to="StateMachine/GoblinPatrol" method="_on_vision_body_exited"]
