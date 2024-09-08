@@ -1,6 +1,7 @@
 class_name GoblinPatrol extends GoblinState
 
-@onready var area: Rect2
+@onready var angle: float
+@onready var distance: float
 @onready var random_point: Vector2
 
 func enter(_state: StringName, _data := {}) -> void:
