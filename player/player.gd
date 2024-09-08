@@ -10,3 +10,5 @@ class_name Player extends CharacterBody2D
 @onready var hurt_box: Area2D = %HurtBox
 
 @onready var followers: Array = []
+
+@onready var fsm: StateMachine = %StateMachine
