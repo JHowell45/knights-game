@@ -1,11 +1,8 @@
 class_name PlayerState extends State
 
+var player: Player
 
-# Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
+	await owner.ready
+	player = owner as Player
+	assert(player != null, "The PlayerState state type must be used only in the player scene. It needs the owner to be a Player node.")
