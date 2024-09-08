@@ -26,7 +26,6 @@ func _ready() -> void:
 	animator.play("Idle")
 	
 func _physics_process(delta: float) -> void:
-	_handle_sprite_flip()
 	_disable_hitboxes()
 	if attacking:
 		var new_position = player.global_position
@@ -48,13 +47,6 @@ func _physics_process(delta: float) -> void:
 	#else:
 		#state._set_state(state.States.RUN, animator)
 
-func _handle_sprite_flip():
-	if velocity.x < 0:
-			sprite.flip_h = true
-			direction = state.Direction.LEFT
-	elif velocity.x > 0:
-		sprite.flip_h = false
-		direction = state.Direction.RIGHT
 		
 func _disable_hitboxes() -> void:
 	hit_box_up_col.disabled = true
