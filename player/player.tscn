@@ -384,7 +384,7 @@ _data = {
 size = Vector2(20, 8)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4c05"]
-size = Vector2(62, 88)
+size = Vector2(62, 94)
 
 [node name="Player" type="CharacterBody2D" groups=["Knights"]]
 collision_layer = 2
@@ -401,7 +401,7 @@ texture_filter = 1
 texture = ExtResource("2_uvg3k")
 hframes = 7
 vframes = 6
-frame = 12
+frame = 16
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -469,11 +469,13 @@ script = ExtResource("7_pq6oc")
 script = ExtResource("8_e3ccp")
 
 [node name="HitBoxRight" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 4
 monitoring = false
 script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
-position = Vector2(55, -16)
+position = Vector2(55, -13)
 shape = SubResource("RectangleShape2D_r4c05")
 
 [connection signal="body_entered" from="HitBoxRight" to="HitBoxRight" method="_on_body_entered"]
