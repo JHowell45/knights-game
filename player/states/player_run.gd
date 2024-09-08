@@ -21,5 +21,6 @@ func physics_update(delta: float) -> void:
 	player.velocity = direction * player.speed * delta
 	player.move_and_slide()
 
-func handle_input(_event: InputEvent) -> void:
-	pass
+func handle_input(event: InputEvent) -> void:
+	if event.is_action("attack"):
+		transition.emit(ATTACK)

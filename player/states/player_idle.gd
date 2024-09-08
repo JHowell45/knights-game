@@ -18,5 +18,6 @@ func physics_update(_delta: float) -> void:
 		transition.emit(RUN, {'direction': direction})
 		
 
-func handle_input(_event: InputEvent) -> void:
-	pass
+func handle_input(event: InputEvent) -> void:
+	if event.is_action("attack"):
+		transition.emit(ATTACK)
