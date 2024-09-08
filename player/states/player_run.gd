@@ -12,9 +12,9 @@ func update(_delta: float) -> void:
 func physics_update(delta: float) -> void:
 	player.animator.play("Run")
 	var direction = Input.get_vector("left", "right", "up", "down")
-	if player.velocity.x < 0:
+	if player.direction == player.Direction.LEFT:
 		player.sprite.flip_h = true
-	elif player.velocity.x > 0:
+	elif player.direction == player.Direction.RIGHT:
 		player.sprite.flip_h = false
 	if direction.is_zero_approx():
 		transition.emit(IDLE)
