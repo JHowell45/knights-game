@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=18 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
@@ -6,6 +6,7 @@
 [ext_resource type="Script" path="res://state_machine.gd" id="5_jwun5"]
 [ext_resource type="Script" path="res://enemies/goblin_health_bar.gd" id="5_t0fd0"]
 [ext_resource type="Script" path="res://enemies/states/goblin_idle.gd" id="6_oml2k"]
+[ext_resource type="Script" path="res://enemies/states/goblin_patrol.gd" id="7_m7o5k"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
@@ -186,6 +187,9 @@ size = Vector2(42, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgjx"]
 size = Vector2(44, 58)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_mv2yc"]
+radius = 142.014
+
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 19
@@ -257,9 +261,21 @@ state = NodePath("GoblinIdle")
 [node name="GoblinIdle" type="Node" parent="StateMachine"]
 script = ExtResource("6_oml2k")
 
+[node name="GoblinPatrol" type="Node" parent="StateMachine"]
+script = ExtResource("7_m7o5k")
+
 [node name="IdleTimer" type="Timer" parent="."]
 unique_name_in_owner = true
 one_shot = true
+
+[node name="PatrolZone" type="Area2D" parent="."]
+unique_name_in_owner = true
+collision_layer = 0
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PatrolZone"]
+shape = SubResource("CircleShape2D_mv2yc")
+disabled = true
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
