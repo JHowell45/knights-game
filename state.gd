@@ -1,20 +1,18 @@
-class_name State
-extends Node
+class_name State extends Node
 
-signal state_changed(new_state: StringName)
+signal transition(next_state: StringName, data: Dictionary)
 
-# Actions to perform when entering this state.
-func enter() -> void:
+func enter(_state: StringName, _data := {}) -> void:
 	pass
-
-# Actions to perform when exiting this state.
+	
 func exit() -> void:
 	pass
 
-# Actions to perform when updating the frame in this state.
-func update(delta: float) -> void:
+func update(_delta: float) -> void:
+	pass
+	
+func physics_update(_delta: float) -> void:
 	pass
 
-# Actions to perform when updating the physics for a frame in this state.
-func physics_update(delta: float) -> void:
+func handle_input(_event: InputEvent) -> void:
 	pass
