@@ -1,7 +1,6 @@
-extends Label
+class_name StateLabel extends Label
 
-@onready var state = %CharacterState
+@onready var fsm: StateMachine = %StateMachine
 
 func _physics_process(delta: float) -> void:
-	#text = state.States.find_key(state.state)
-	pass
+	text = fsm.state.name
