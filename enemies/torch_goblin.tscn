@@ -199,7 +199,7 @@ max_health = 6
 speed = 8000
 min_idle_time = 1.0
 max_idle_time = 3.0
-min_patrol_distance = 20.0
+min_patrol_distance = 70.0
 max_patrol_distance = 120.0
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
