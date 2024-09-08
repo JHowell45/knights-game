@@ -24,8 +24,6 @@ func _to_next_state(next_state: String, data := {}) -> void:
 		print(msg)
 		return
 	var prev_state = state.name
-	print("Prev State: %s" % prev_state)
 	state.exit()
 	state = get_node(next_state)
-	print("New State: %s" % state)
 	state.enter(prev_state, data)
