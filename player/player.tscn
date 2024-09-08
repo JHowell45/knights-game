@@ -1,4 +1,4 @@
-[gd_scene load_steps=27 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=28 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gqymv"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="2_uvg3k"]
@@ -115,6 +115,18 @@ tracks/1/keys = {
 "update": 1,
 "values": [22, 23, 23, 24, 25, 26]
 }
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxDown:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.266667, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
+}
 
 [sub_resource type="Animation" id="Animation_5qatt"]
 length = 0.6
@@ -141,6 +153,18 @@ tracks/1/keys = {
 "transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
 "update": 1,
 "values": [27, 28, 28, 29, 30, 31]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("HitBoxDown:monitoring")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0.233333, 0.433333),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [true, false]
 }
 
 [sub_resource type="Animation" id="Animation_ocvsq"]
@@ -320,6 +344,18 @@ tracks/0/keys = {
 "update": 1,
 "values": [false]
 }
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("HitBoxDown:monitoring")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
 
 [sub_resource type="Animation" id="Animation_drdgq"]
 length = 0.6
@@ -398,6 +434,9 @@ size = Vector2(20, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r4c05"]
 size = Vector2(62, 94)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iqhts"]
+size = Vector2(102, 50)
+
 [node name="Player" type="CharacterBody2D" groups=["Knights"]]
 collision_layer = 2
 collision_mask = 5
@@ -413,7 +452,7 @@ texture_filter = 1
 texture = ExtResource("2_uvg3k")
 hframes = 7
 vframes = 6
-frame = 21
+frame = 31
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -495,5 +534,11 @@ shape = SubResource("RectangleShape2D_r4c05")
 [node name="HitBoxUp" type="Area2D" parent="."]
 
 [node name="HitBoxDown" type="Area2D" parent="."]
+monitoring = false
+script = ExtResource("10_x1rmd")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDown"]
+position = Vector2(0, 40)
+shape = SubResource("RectangleShape2D_iqhts")
 
 [connection signal="body_entered" from="HitBoxRight" to="HitBoxRight" method="_on_body_entered"]
