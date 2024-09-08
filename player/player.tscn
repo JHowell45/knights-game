@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=27 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gqymv"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="2_uvg3k"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" path="res://player/states/player_idle.gd" id="6_4jhvp"]
 [ext_resource type="Script" path="res://player/states/player_run.gd" id="7_pq6oc"]
 [ext_resource type="Script" path="res://player/states/player_attack.gd" id="8_e3ccp"]
+[ext_resource type="Script" path="res://player/hit_box_right.gd" id="10_x1rmd"]
 
 [sub_resource type="Animation" id="Animation_ss3sb"]
 length = 0.6
@@ -401,7 +402,7 @@ texture_filter = 1
 texture = ExtResource("2_uvg3k")
 hframes = 7
 vframes = 6
-frame = 16
+frame = 12
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -470,7 +471,10 @@ script = ExtResource("8_e3ccp")
 
 [node name="HitBoxRight" type="Area2D" parent="."]
 monitoring = false
+script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
 position = Vector2(55, -16)
 shape = SubResource("RectangleShape2D_r4c05")
+
+[connection signal="body_entered" from="HitBoxRight" to="HitBoxRight" method="_on_body_entered"]
