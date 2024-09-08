@@ -2,6 +2,7 @@ class_name GoblinState extends State
 
 const IDLE = "GoblinIdle"
 const PATROL = "GoblinPatrol"
+const HUNT = "GoblinHuntPlayer"
 
 var goblin: TorchGoblin
 
