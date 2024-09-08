@@ -5,7 +5,7 @@ class_name GoblinPatrol extends GoblinState
 
 func enter(_state: StringName, _data := {}) -> void:
 	var angle = randf_range(0, TAU)
-	var distance := randf_range(50, 100)
+	var distance := randf_range(goblin.min_patrol_distance, goblin.max_patrol_distance)
 	random_point = Vector2(goblin.global_position.x + distance * cos(angle), goblin.global_position.y + distance * sin(angle))
 	goblin.nav.set_target_position(random_point)
 	
