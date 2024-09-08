@@ -20,4 +20,4 @@ func handle_input(_event: InputEvent) -> void:
 
 
 func _on_vision_body_entered(body: Node2D) -> void:
-	transition.emit(HUNT)
+	hunt_player(body)
