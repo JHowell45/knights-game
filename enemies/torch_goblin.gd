@@ -6,6 +6,10 @@ signal take_damage(amount: int)
 
 @export var max_health: int
 @export var speed: int
+@export var min_idle_time: float
+@export var max_idle_time: float
+@export var min_patrol_distance: float
+@export var max_patrol_distance: float
 
 @onready var sprite: Sprite2D = $Sprite2D
 @onready var animator: AnimationPlayer = $AnimationPlayer
