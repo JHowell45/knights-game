@@ -4,12 +4,9 @@ class_name GoblinPatrol extends GoblinState
 @onready var random_point: Vector2
 
 func enter(_state: StringName, _data := {}) -> void:
-	area = goblin.patrol_zone.get_children()[0].shape.get_rect()
-	var start = area.position
-	var end = area.end
-	
-	random_point = Vector2(randf_range(start[0], end[0]), randf_range(start[1], end[1]))
-	print(random_point)
+	var angle = randf_range(0, TAU)
+	var distance := randf_range(50, 100)
+	random_point = Vector2(goblin.global_position.x + distance * cos(angle), goblin.global_position.y + distance * sin(angle))
 	goblin.nav.set_target_position(random_point)
 	
 func exit() -> void:
