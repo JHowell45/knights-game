@@ -10,11 +10,3 @@ class_name Player extends CharacterBody2D
 @onready var hurt_box: Area2D = %HurtBox
 
 @onready var followers: Array = []
-	
-
-func _physics_process(delta: float) -> void:
-	velocity = Input.get_vector("left", "right", "up", "down") * speed * delta
-	move_and_slide()
-
-func _on_minion_following(rid: RID) -> void:
-	followers.append(rid)
