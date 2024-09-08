@@ -14,4 +14,8 @@ func _ready() -> void:
 
 func hunt_player(body: Node2D) -> void:
 	if body is Player:
-		transition.emit(HUNT, {"player_position": body.global_position})
+		transition.emit(HUNT, {"player": body})
+
+func return_to_patrol(body: Node2D) -> void:
+	if body is Player:
+		transition.emit(IDLE)
