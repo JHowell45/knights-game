@@ -1,11 +1,9 @@
-[gd_scene load_steps=22 format=3 uid="uid://bcamq5835saae"]
+[gd_scene load_steps=19 format=3 uid="uid://bcamq5835saae"]
 
 [ext_resource type="Script" path="res://player/player.gd" id="1_gqymv"]
 [ext_resource type="Texture2D" uid="uid://cu0lok0iif8pp" path="res://sprites/Warrior_Blue.png" id="2_uvg3k"]
 [ext_resource type="Script" path="res://player/animation_player.gd" id="3_4pksv"]
-[ext_resource type="PackedScene" uid="uid://djij8fvt7nkaj" path="res://components/character_state.tscn" id="4_jtrbq"]
 [ext_resource type="Script" path="res://label.gd" id="5_fvj7k"]
-[ext_resource type="Script" path="res://state_machine.gd" id="6_w7irf"]
 
 [sub_resource type="Animation" id="Animation_ss3sb"]
 length = 0.6
@@ -351,10 +349,6 @@ _data = {
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mb4iw"]
 size = Vector2(20, 8)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_1jerc"]
-radius = 33.0
-height = 102.0
-
 [node name="Player" type="CharacterBody2D" groups=["Knights"]]
 collision_layer = 2
 collision_mask = 5
@@ -402,9 +396,6 @@ script = ExtResource("3_4pksv")
 position = Vector2(0, 28)
 shape = SubResource("RectangleShape2D_mb4iw")
 
-[node name="CharacterState" parent="." instance=ExtResource("4_jtrbq")]
-unique_name_in_owner = true
-
 [node name="StateLabel" type="Label" parent="."]
 offset_left = -47.0
 offset_top = -73.0
@@ -418,48 +409,3 @@ script = ExtResource("5_fvj7k")
 unique_name_in_owner = true
 wait_time = 0.5
 one_shot = true
-
-[node name="StateMachine" type="Node" parent="."]
-script = ExtResource("6_w7irf")
-
-[node name="HitBoxRightTop" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 16
-collision_mask = 4
-
-[node name="HitBoxTopCol" type="CollisionShape2D" parent="HitBoxRightTop"]
-position = Vector2(-2, -41)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_1jerc")
-disabled = true
-
-[node name="HitBoxRight" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 16
-collision_mask = 4
-
-[node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
-position = Vector2(56, -3)
-shape = SubResource("CapsuleShape2D_1jerc")
-disabled = true
-
-[node name="HitBoxBottom" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 16
-collision_mask = 4
-
-[node name="HitBoxBottomCol" type="CollisionShape2D" parent="HitBoxBottom"]
-position = Vector2(0, 48)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_1jerc")
-disabled = true
-
-[node name="HitBoxLeft" type="Area2D" parent="."]
-unique_name_in_owner = true
-collision_layer = 16
-collision_mask = 4
-
-[node name="HitBoxLeftCol" type="CollisionShape2D" parent="HitBoxLeft"]
-position = Vector2(-56, -3)
-shape = SubResource("CapsuleShape2D_1jerc")
-disabled = true
