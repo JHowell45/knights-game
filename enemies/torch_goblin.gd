@@ -18,6 +18,8 @@ signal take_damage(amount: int)
 @onready var direction
 @onready var idle_timer: Timer = %IdleTimer
 @onready var patrol_zone: Area2D = %PatrolZone
+@onready var vision: Area2D = %Vision
+
 @onready var fsm: StateMachine = %StateMachine
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
