@@ -1,7 +1,7 @@
 class_name PlayerRun extends PlayerState
 
-func enter(_state: StringName, data := {}) -> void:
-	player.velocity = data.get('direction') * player.speed
+func enter(_state: StringName, _data := {}) -> void:
+	pass
 	
 func exit() -> void:
 	pass
