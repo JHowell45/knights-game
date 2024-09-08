@@ -1,9 +1,9 @@
-[gd_scene load_steps=18 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=15 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
 [ext_resource type="Texture2D" uid="uid://d21c8hqyo0sg6" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="4_7p4tn"]
-[ext_resource type="Script" path="res://enemies/vision.gd" id="5_4mccd"]
+[ext_resource type="Script" path="res://state_machine.gd" id="5_jwun5"]
 [ext_resource type="Script" path="res://enemies/goblin_health_bar.gd" id="5_t0fd0"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
@@ -185,17 +185,6 @@ size = Vector2(42, 8)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_eqgjx"]
 size = Vector2(44, 58)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_igrco"]
-radius = 266.017
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_agmvx"]
-radius = 25.0
-height = 66.0
-
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_o3xae"]
-radius = 15.0
-height = 96.0
-
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 19
@@ -260,58 +249,9 @@ tint_under = Color(0.140447, 0.140447, 0.140447, 1)
 tint_progress = Color(0.960381, 0.000863899, 0.0682812, 1)
 script = ExtResource("5_t0fd0")
 
-[node name="Vision" type="Area2D" parent="."]
-collision_layer = 4
-collision_mask = 2
-script = ExtResource("5_4mccd")
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Vision"]
-position = Vector2(-2, -40)
-shape = SubResource("CircleShape2D_igrco")
-
-[node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
-unique_name_in_owner = true
-target_desired_distance = 100.0
-path_postprocessing = 1
-debug_enabled = true
-
-[node name="HitBoxRight" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 2
-
-[node name="HitBoxRightCol" type="CollisionShape2D" parent="HitBoxRight"]
-position = Vector2(40, -27)
-shape = SubResource("CapsuleShape2D_agmvx")
-
-[node name="HitBoxLeft" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 2
-
-[node name="HitBoxLeftCol" type="CollisionShape2D" parent="HitBoxLeft"]
-position = Vector2(-43, -27)
-shape = SubResource("CapsuleShape2D_agmvx")
-
-[node name="HitBoxUp" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 2
-
-[node name="HitBoxUpCol" type="CollisionShape2D" parent="HitBoxUp"]
-position = Vector2(0, -73)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_o3xae")
-
-[node name="HitBoxDown" type="Area2D" parent="."]
-collision_layer = 32
-collision_mask = 2
-
-[node name="HitBoxDownCol" type="CollisionShape2D" parent="HitBoxDown"]
-position = Vector2(0, 13)
-rotation = 1.5708
-shape = SubResource("CapsuleShape2D_o3xae")
+[node name="StateMachine" type="Node" parent="."]
+script = ExtResource("5_jwun5")
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
-[connection signal="attack" from="Vision" to="." method="_on_vision_attack"]
-[connection signal="velocity_computed" from="NavigationAgent2D" to="." method="_on_navigation_agent_2d_velocity_computed"]
-[connection signal="body_entered" from="HitBoxRight" to="." method="_on_hit_box_right_body_entered"]
