@@ -13,6 +13,7 @@ signal take_damage(amount: int)
 @onready var nav: NavigationAgent2D = %NavigationAgent2D
 @onready var state: Node = %GoblinState
 @onready var direction
+@onready var idle_timer: Timer = %IdleTimer
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	take_damage.emit(area.get_parent().attack)
