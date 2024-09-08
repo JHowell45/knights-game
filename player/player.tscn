@@ -490,4 +490,10 @@ script = ExtResource("10_x1rmd")
 position = Vector2(55, -13)
 shape = SubResource("RectangleShape2D_r4c05")
 
+[node name="HitBoxLeft" type="Area2D" parent="."]
+
+[node name="HitBoxUp" type="Area2D" parent="."]
+
+[node name="HitBoxDown" type="Area2D" parent="."]
+
 [connection signal="body_entered" from="HitBoxRight" to="HitBoxRight" method="_on_body_entered"]
