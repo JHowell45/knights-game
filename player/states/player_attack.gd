@@ -40,18 +40,3 @@ func _attack_direction() -> int:
 	digit += int(attack_switch)
 	attack_switch = not attack_switch
 	return digit
-
-#func _handle_attack():
-	#var digit := 1
-	#match player.direction:
-		#player.Direction.UP:
-			#digit = 5
-		#player.Direction.DOWN:
-			#digit = 3
-		#player.Direction.LEFT:
-			#pass
-		#player.Direction.RIGHT:
-			#pass
-	#digit += int(attack_switch)
-	#attack_switch = not attack_switch
-	#player.animator.play("Attack_%d" % digit)
