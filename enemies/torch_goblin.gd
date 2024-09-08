@@ -43,10 +43,10 @@ func _physics_process(delta: float) -> void:
 				_on_navigation_agent_2d_velocity_computed(new_velocity)
 	move_and_slide()
 	
-	if velocity.is_zero_approx():
-		state._set_state(state.States.IDLE, animator)
-	else:
-		state._set_state(state.States.RUN, animator)
+	#if velocity.is_zero_approx():
+		#state._set_state(state.States.IDLE, animator)
+	#else:
+		#state._set_state(state.States.RUN, animator)
 
 func _handle_sprite_flip():
 	if velocity.x < 0:

@@ -1,11 +1,10 @@
-[gd_scene load_steps=19 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=18 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
 [ext_resource type="Texture2D" uid="uid://d21c8hqyo0sg6" path="res://assets/Tiny Swords (Update 010)/UI/Banners/Carved_3Slides.png" id="4_7p4tn"]
 [ext_resource type="Script" path="res://enemies/vision.gd" id="5_4mccd"]
 [ext_resource type="Script" path="res://enemies/goblin_health_bar.gd" id="5_t0fd0"]
-[ext_resource type="PackedScene" uid="uid://drmkd36uoxe8y" path="res://enemies/goblin_state.tscn" id="6_4kgoe"]
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
@@ -275,9 +274,6 @@ unique_name_in_owner = true
 target_desired_distance = 100.0
 path_postprocessing = 1
 debug_enabled = true
-
-[node name="GoblinState" parent="." instance=ExtResource("6_4kgoe")]
-unique_name_in_owner = true
 
 [node name="HitBoxRight" type="Area2D" parent="."]
 collision_layer = 32
