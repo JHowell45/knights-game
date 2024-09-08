@@ -1,7 +1,7 @@
 class_name GoblinPatrol extends GoblinState
 
 func enter(_state: StringName, _data := {}) -> void:
-	goblin.velocity = Vector2.ZERO
+	pass
 	
 func exit() -> void:
 	pass
