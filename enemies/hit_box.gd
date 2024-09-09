@@ -1,4 +1,4 @@
-class_name HitBox extends Area2D
+class_name GoblinHitBox extends Area2D
 
 var goblin: TorchGoblin
 
