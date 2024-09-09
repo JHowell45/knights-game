@@ -20,6 +20,12 @@ signal take_damage(amount: int)
 @onready var patrol_zone: Area2D = %PatrolZone
 @onready var vision: Area2D = %Vision
 
+@onready var hit_box_right: GoblinHitBox = $HitBoxRight
+@onready var hit_box_left: GoblinHitBox = $HitBoxLeft
+@onready var hit_box_up: GoblinHitBox = $HitBoxUp
+@onready var hit_box_bottom: GoblinHitBox = $HitBoxBottom
+
+
 @onready var fsm: StateMachine = %StateMachine
 
 func _on_hurt_box_area_entered(area: Area2D) -> void:
