@@ -146,7 +146,7 @@ tracks/2/path = NodePath("HitBoxDown:monitoring")
 tracks/2/interp = 1
 tracks/2/loop_wrap = true
 tracks/2/keys = {
-"times": PackedFloat32Array(0.266667, 0.5),
+"times": PackedFloat32Array(0.2, 0.5),
 "transitions": PackedFloat32Array(1, 1),
 "update": 1,
 "values": [true, false]
@@ -513,7 +513,7 @@ size = Vector2(73, 98)
 size = Vector2(112, 55)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_iqhts"]
-size = Vector2(102, 50)
+size = Vector2(102, 59)
 
 [node name="Player" type="CharacterBody2D" groups=["Knights"]]
 collision_layer = 2
@@ -530,7 +530,7 @@ texture_filter = 1
 texture = ExtResource("2_uvg3k")
 hframes = 7
 vframes = 6
-frame = 21
+frame = 23
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -634,7 +634,7 @@ monitoring = false
 script = ExtResource("10_x1rmd")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxDown"]
-position = Vector2(0, 40)
+position = Vector2(0, 44.5)
 shape = SubResource("RectangleShape2D_iqhts")
 
 [connection signal="body_entered" from="HitBoxRight" to="HitBoxRight" method="_on_body_entered"]
