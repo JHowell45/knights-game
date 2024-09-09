@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=26 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
@@ -13,7 +13,6 @@
 
 [sub_resource type="Animation" id="Animation_gpo45"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -41,7 +40,6 @@ tracks/1/keys = {
 
 [sub_resource type="Animation" id="Animation_n2vsa"]
 length = 0.6
-loop_mode = 1
 tracks/0/type = "value"
 tracks/0/imported = false
 tracks/0/enabled = true
@@ -203,6 +201,12 @@ size = Vector2(45, 78)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_h3qrx"]
 size = Vector2(45, 78)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vcshe"]
+size = Vector2(142, 44)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_14s2q"]
+size = Vector2(124, 37)
+
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 19
@@ -218,10 +222,9 @@ max_patrol_distance = 120.0
 texture_filter = 1
 position = Vector2(0, -32)
 texture = ExtResource("2_roic8")
-flip_h = true
 hframes = 6
 vframes = 6
-frame = 19
+frame = 27
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -336,7 +339,15 @@ shape = SubResource("RectangleShape2D_h3qrx")
 
 [node name="HitBoxUp" type="Area2D" parent="."]
 
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxUp"]
+position = Vector2(0, -63)
+shape = SubResource("RectangleShape2D_vcshe")
+
 [node name="HitBoxBottom" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxBottom"]
+position = Vector2(0, 18.5)
+shape = SubResource("RectangleShape2D_14s2q")
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
