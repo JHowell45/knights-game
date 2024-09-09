@@ -32,4 +32,5 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 
 
 func _on_hit_range_body_entered(body: Node2D) -> void:
-	transition.emit(ATTACK, {"player": player})
+	if body is Player:
+		transition.emit(ATTACK, {"player": player})
