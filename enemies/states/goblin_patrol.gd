@@ -20,6 +20,14 @@ func physics_update(delta: float) -> void:
 	if not goblin.nav.is_navigation_finished():
 		var next_path = goblin.nav.get_next_path_position()
 		var new_velocity = goblin.global_position.direction_to(next_path) * goblin.speed * delta
+		if new_velocity.x < 0:
+			goblin.sprite.flip_h = true
+			goblin.hit_box_right.get_children()[0].disabled = true
+			goblin.hit_box_left.get_children()[0].disabled = false
+		elif new_velocity.x > 0:
+			goblin.sprite.flip_h = false
+			goblin.hit_box_right.get_children()[0].disabled = false
+			goblin.hit_box_left.get_children()[0].disabled = true
 		if goblin.nav.avoidance_enabled:
 				goblin.nav.set_velocity(new_velocity)
 		else:
