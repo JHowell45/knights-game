@@ -17,12 +17,16 @@ func physics_update(delta: float) -> void:
 	goblin.animator.play("Run")
 	if not goblin.nav.is_target_reachable():
 		_generate_random_path()
-	if goblin.nav.is_navigation_finished():
-		transition.emit(IDLE)
-	else:
+	if not goblin.nav.is_navigation_finished():
 		var next_path = goblin.nav.get_next_path_position()
-		goblin.velocity = (next_path - goblin.global_position).normalized() * goblin.speed * delta
+		var new_velocity = goblin.global_position.direction_to(next_path) * goblin.speed * delta
+		if goblin.nav.avoidance_enabled:
+				goblin.nav.set_velocity(new_velocity)
+		else:
+			_on_navigation_agent_2d_velocity_computed(new_velocity)
 		goblin.move_and_slide()
+	else:
+		transition.emit(IDLE)
 
 func handle_input(_event: InputEvent) -> void:
 	pass
@@ -40,3 +44,7 @@ func _generate_random_path() -> void:
 	distance = randf_range(goblin.min_patrol_distance, goblin.max_patrol_distance)
 	random_point = Vector2(goblin.global_position.x + distance * cos(angle), goblin.global_position.y + distance * sin(angle))
 	goblin.nav.set_target_position(random_point)
+
+
+func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
+	goblin.velocity = safe_velocity
