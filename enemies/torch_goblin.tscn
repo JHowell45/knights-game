@@ -357,6 +357,8 @@ position = Vector2(0, 18.5)
 shape = SubResource("RectangleShape2D_14s2q")
 
 [node name="HitRange" type="Area2D" parent="."]
+collision_layer = 0
+collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
 position = Vector2(0, -24.5)
