@@ -371,3 +371,4 @@ shape = SubResource("RectangleShape2D_o4bka")
 [connection signal="body_entered" from="Vision" to="StateMachine/GoblinPatrol" method="_on_vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="StateMachine/GoblinIdle" method="_on_vision_body_exited"]
 [connection signal="body_exited" from="Vision" to="StateMachine/GoblinPatrol" method="_on_vision_body_exited"]
+[connection signal="body_entered" from="HitRange" to="StateMachine/GoblinHuntPlayer" method="_on_hit_range_body_entered"]
