@@ -1,4 +1,4 @@
-[gd_scene load_steps=26 format=3 uid="uid://cxuwt5eu8cvv8"]
+[gd_scene load_steps=27 format=3 uid="uid://cxuwt5eu8cvv8"]
 
 [ext_resource type="Script" path="res://enemies/torch_goblin.gd" id="1_7w448"]
 [ext_resource type="Texture2D" uid="uid://bn16c8rl762cq" path="res://enemies/Torch_Red.png" id="2_roic8"]
@@ -207,6 +207,9 @@ size = Vector2(142, 44)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_14s2q"]
 size = Vector2(124, 37)
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o4bka"]
+size = Vector2(124, 121)
+
 [node name="TorchGoblin" type="CharacterBody2D" groups=["Goblins"]]
 collision_layer = 4
 collision_mask = 19
@@ -326,28 +329,38 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_q0wit")
 
 [node name="HitBoxRight" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxRight"]
 position = Vector2(44.5, -35)
 shape = SubResource("RectangleShape2D_tcfyx")
 
 [node name="HitBoxLeft" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxLeft"]
 position = Vector2(-47, -35)
 shape = SubResource("RectangleShape2D_h3qrx")
 
 [node name="HitBoxUp" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxUp"]
 position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_vcshe")
 
 [node name="HitBoxBottom" type="Area2D" parent="."]
+monitoring = false
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="HitBoxBottom"]
 position = Vector2(0, 18.5)
 shape = SubResource("RectangleShape2D_14s2q")
+
+[node name="HitRange" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HitRange"]
+position = Vector2(0, -24.5)
+shape = SubResource("RectangleShape2D_o4bka")
 
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
