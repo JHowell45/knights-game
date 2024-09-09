@@ -16,3 +16,7 @@ func physics_update(delta: float) -> void:
 
 func handle_input(_event: InputEvent) -> void:
 	pass
+
+
+func _on_hit_range_body_exited(body: Node2D) -> void:
+	transition.emit(HUNT, {"player": player})
