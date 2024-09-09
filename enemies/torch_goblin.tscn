@@ -299,6 +299,9 @@ script = ExtResource("8_raqiy")
 
 [node name="NavigationAgent2D" type="NavigationAgent2D" parent="."]
 unique_name_in_owner = true
+path_postprocessing = 1
+avoidance_enabled = true
+debug_enabled = true
 
 [node name="Vision" type="Area2D" parent="."]
 unique_name_in_owner = true
@@ -311,6 +314,7 @@ shape = SubResource("CircleShape2D_q0wit")
 [connection signal="take_damage" from="." to="GoblinHealthBar" method="_on_torch_goblin_take_damage"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_hurt_box_area_entered"]
 [connection signal="dead" from="GoblinHealthBar" to="." method="_on_goblin_health_bar_dead"]
+[connection signal="velocity_computed" from="NavigationAgent2D" to="StateMachine/GoblinPatrol" method="_on_navigation_agent_2d_velocity_computed"]
 [connection signal="body_entered" from="Vision" to="StateMachine/GoblinIdle" method="_on_vision_body_entered"]
 [connection signal="body_entered" from="Vision" to="StateMachine/GoblinPatrol" method="_on_vision_body_entered"]
 [connection signal="body_exited" from="Vision" to="StateMachine/GoblinIdle" method="_on_vision_body_exited"]
