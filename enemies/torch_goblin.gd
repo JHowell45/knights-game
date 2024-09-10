@@ -28,6 +28,13 @@ signal take_damage(amount: int)
 
 @onready var fsm: StateMachine = %StateMachine
 
+enum Direction {
+	LEFT,
+	RIGHT,
+	UP,
+	DOWN
+}
+
 func _on_hurt_box_area_entered(area: Area2D) -> void:
 	take_damage.emit(area.get_parent().attack)
 
