@@ -490,5 +490,5 @@ shape = SubResource("RectangleShape2D_o4bka")
 [connection signal="body_entered" from="HitBoxLeft" to="HitBoxLeft" method="_on_body_entered"]
 [connection signal="body_entered" from="HitBoxUp" to="HitBoxUp" method="_on_body_entered"]
 [connection signal="body_entered" from="HitBoxBottom" to="HitBoxBottom" method="_on_body_entered"]
-[connection signal="body_entered" from="HitRange" to="StateMachine/GoblinHuntPlayer" method="_on_hit_range_body_entered"]
-[connection signal="body_exited" from="HitRange" to="StateMachine/GoblinAttack" method="_on_hit_range_body_exited"]
+[connection signal="area_entered" from="HitRange" to="StateMachine/GoblinHuntPlayer" method="_on_hit_range_area_entered"]
+[connection signal="area_exited" from="HitRange" to="StateMachine/GoblinAttack" method="_on_hit_range_area_exited"]

@@ -35,6 +35,6 @@ func _on_navigation_agent_2d_velocity_computed(safe_velocity: Vector2) -> void:
 	goblin.velocity = safe_velocity
 
 
-func _on_hit_range_body_entered(body: Node2D) -> void:
-	if body is Player:
-		transition.emit(ATTACK, {"player": player})
+func _on_hit_range_area_entered(area: Area2D) -> void:
+	if area.name == "HurtBox":
+		transition.emit(ATTACK, {"player": area.owner, "player_hurtbox": area})
