@@ -28,8 +28,10 @@ func physics_update(delta: float) -> void:
 		if _is_hittable(hitbox, player.global_position):
 			match direction:
 				goblin.Direction.LEFT:
+					goblin.flip_left()
 					goblin.animator.play("Attack_Right")
 				goblin.Direction.RIGHT:
+					goblin.flip_right()
 					goblin.animator.play("Attack_Right")
 				goblin.Direction.UP:
 					goblin.animator.play("Attack_Up")
