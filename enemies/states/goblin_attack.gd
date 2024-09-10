@@ -6,8 +6,8 @@ class_name GoblinAttack extends GoblinState
 func enter(_state: StringName, data := {}) -> void:
 	player = data["player"]
 	hitboxes = [
-		[goblin.hit_box_right, goblin.Direction.RIGHT],
 		[goblin.hit_box_left, goblin.Direction.LEFT],
+		[goblin.hit_box_right, goblin.Direction.RIGHT],
 		[goblin.hit_box_up, goblin.Direction.UP],
 		[goblin.hit_box_bottom, goblin.Direction.DOWN]
 	]
@@ -26,17 +26,20 @@ func physics_update(delta: float) -> void:
 		var hitbox = data[0]
 		var direction = data[1]
 		if _is_hittable(hitbox, player.global_position):
+			var animation: StringName
 			match direction:
 				goblin.Direction.LEFT:
 					goblin.flip_left()
-					goblin.animator.play("Attack_Right")
+					animation = "Attack_Right"
 				goblin.Direction.RIGHT:
 					goblin.flip_right()
-					goblin.animator.play("Attack_Right")
+					animation = "Attack_Right"
 				goblin.Direction.UP:
-					goblin.animator.play("Attack_Up")
+					animation = "Attack_Up"
 				goblin.Direction.DOWN:
-					goblin.animator.play("Attack_Down")
+					animation = "Attack_Down"
+			goblin.animator.play(animation)
+			await goblin.animator.animation_finished
 			
 
 func handle_input(_event: InputEvent) -> void:
@@ -48,9 +51,26 @@ func _on_hit_range_body_exited(body: Node2D) -> void:
 
 func _is_hittable(hitbox: Area2D, player_position: Vector2) -> bool:
 	var col: CollisionShape2D = hitbox.get_children()[0]
-	var col_pos: Vector2 = col.global_position
+	var collision_global_position: Vector2 = col.global_position
 	var rect: Rect2 = col.shape.get_rect()
-	var true_rect: Rect2 = Rect2(col_pos + rect.position, rect.size)
+	print(rect.size / 2)
+	print("position: ", hitbox.position)
+	print("global position: ", hitbox.global_position)
+	print(hitbox.shape_owner_get_transform(0).origin)
+	print(hitbox.shape_owner_get_transform(0).origin - rect.size / 2)
+	#var true_rect: Rect2 = Rect2(col.global_position - rect.size / 2, rect.size)
+	#print("col.position: ", col.position)
+	#print("collision_global_position: ", collision_global_position)
+	#print("rect.position: ", rect.position)
+	#print("rect.end: ", rect.end)
+	var true_rect: Rect2 = Rect2(collision_global_position + rect.position, rect.size)
+	var true_rect_2: Rect2 = Rect2(goblin.global_position + rect.position, rect.size)
+	print("rect: ", rect)
+	print("rect has point: ", rect.has_point(player_position))
+	print("true_rect: ", true_rect)
+	print("true_rect has point: ", true_rect.has_point(player_position))
+	#print("true_rect_2: ", true_rect_2)
+	#print("true_rect_2 has point: ", true_rect_2.has_point(player_position))
 	var distance = goblin.global_position.direction_to(player_position)
 	if true_rect.has_point(player_position):
 		return true
