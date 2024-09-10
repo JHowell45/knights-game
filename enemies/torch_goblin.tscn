@@ -195,33 +195,6 @@ tracks/1/keys = {
 "values": [0, 1, 2]
 }
 
-[sub_resource type="Animation" id="Animation_aty2q"]
-length = 0.6
-tracks/0/type = "value"
-tracks/0/imported = false
-tracks/0/enabled = true
-tracks/0/path = NodePath("Sprite2D:visible")
-tracks/0/interp = 1
-tracks/0/loop_wrap = false
-tracks/0/keys = {
-"times": PackedFloat32Array(0),
-"transitions": PackedFloat32Array(1),
-"update": 1,
-"values": [true]
-}
-tracks/1/type = "value"
-tracks/1/imported = false
-tracks/1/enabled = true
-tracks/1/path = NodePath("Sprite2D:frame")
-tracks/1/interp = 1
-tracks/1/loop_wrap = false
-tracks/1/keys = {
-"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
-"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
-"update": 1,
-"values": [10, 11, 12, 13, 14, 15]
-}
-
 [sub_resource type="Animation" id="Animation_f06gt"]
 length = 0.001
 tracks/0/type = "value"
@@ -271,6 +244,33 @@ tracks/3/keys = {
 "transitions": PackedFloat32Array(1),
 "update": 1,
 "values": [false]
+}
+
+[sub_resource type="Animation" id="Animation_aty2q"]
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:visible")
+tracks/0/interp = 1
+tracks/0/loop_wrap = false
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:frame")
+tracks/1/interp = 1
+tracks/1/loop_wrap = false
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [10, 11, 12, 13, 14, 15]
 }
 
 [sub_resource type="AnimationLibrary" id="AnimationLibrary_xhcep"]
@@ -328,7 +328,7 @@ position = Vector2(0, -32)
 texture = ExtResource("2_roic8")
 hframes = 6
 vframes = 6
-frame = 19
+frame = 22
 metadata/_aseprite_wizard_config_ = {
 "i_mode": -1,
 "keep_anim_length": false,
@@ -430,6 +430,8 @@ collision_mask = 2
 shape = SubResource("CircleShape2D_q0wit")
 
 [node name="HitBoxRight" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 script = ExtResource("11_oeev6")
 
@@ -438,6 +440,8 @@ position = Vector2(44.5, -35)
 shape = SubResource("RectangleShape2D_tcfyx")
 
 [node name="HitBoxLeft" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 script = ExtResource("11_oeev6")
 
@@ -446,6 +450,8 @@ position = Vector2(-47, -35)
 shape = SubResource("RectangleShape2D_h3qrx")
 
 [node name="HitBoxUp" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 script = ExtResource("11_oeev6")
 
@@ -454,6 +460,8 @@ position = Vector2(0, -63)
 shape = SubResource("RectangleShape2D_vcshe")
 
 [node name="HitBoxBottom" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
 monitoring = false
 script = ExtResource("11_oeev6")
 
