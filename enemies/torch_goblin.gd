@@ -45,3 +45,14 @@ func _on_goblin_health_bar_dead() -> void:
 	var gold = GOLD.instantiate()
 	gold.global_position = pos
 	get_parent().add_child(gold)
+
+
+func flip_left() -> void:
+	sprite.flip_h = true
+	hit_box_right.get_children()[0].disabled = true
+	hit_box_left.get_children()[0].disabled = false
+	
+func flip_right() -> void:
+	sprite.flip_h = false
+	hit_box_right.get_children()[0].disabled = false
+	hit_box_left.get_children()[0].disabled = true
